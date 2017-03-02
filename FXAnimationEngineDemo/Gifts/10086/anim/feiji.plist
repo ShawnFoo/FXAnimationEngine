@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>giftId</key>
+	<string>feiji</string>
+	<key>path</key>
+	<string>animation/feiji</string>
+	<key>width</key>
+	<integer>0</integer>
+	<key>height</key>
+	<integer>0</integer>
+	<key>bottomY</key>
+	<real>0.25</real>
+	<key>animations</key>
+	<array>
+		<dict>
+			<key>count</key>
+			<integer>56</integer>
+			<key>duration</key>
+			<real>3.6</real>
+			<key>repeats</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>count</key>
+			<integer>22</integer>
+			<key>duration</key>
+			<real>1.2</real>
+			<key>repeats</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>count</key>
+			<integer>27</integer>
+			<key>duration</key>
+			<real>1.6</real>
+			<key>repeats</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
