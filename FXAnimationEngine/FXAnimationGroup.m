@@ -24,25 +24,31 @@
     return group;
 }
 
-#pragma mark - Accessor
-- (void)setAnimations:(NSArray<__kindof FXAnimation *> *)animations {
-    _animations = [animations copy];
-    NSUInteger framesCount = 0;
-    for (FXKeyframeAnimation *anim in _animations) {
-        framesCount += anim.frameImages.count;
-    }
-    self.p_framesCount = framesCount;
-}
-
-- (NSMutableArray<UIImage *> *)p_reverseFrames {
-    NSMutableArray *frames = [NSMutableArray arrayWithCapacity:self.p_framesCount];
-    for (FXKeyframeAnimation *animation in self.animations.reverseObjectEnumerator) {
-        for (UIImage *image in animation.frameImages.reverseObjectEnumerator) {
-            [frames addObject:image];
+#pragma mark - Private Methods
+- (void)p_mergeAndReverseAnimationFrames {
+    BOOL hasReleaseAnimationFrames = NO;
+    if (!self.frames.count) {
+        NSMutableArray *allFrames = [NSMutableArray array];
+        for (FXKeyframeAnimation *animation in self.animations.reverseObjectEnumerator) {
+            for (UIImage *image in animation.frames.reverseObjectEnumerator) {
+                [allFrames addObject:image];
+            }
+            [animation p_emptyFrames];
         }
-        animation.frameImages = nil;
+        self.frames = [allFrames copy];
+        hasReleaseAnimationFrames = YES;
     }
-    return frames;
+    else {
+        self.frames = [[self.frames reverseObjectEnumerator] allObjects];
+    }
+    
+    if (!hasReleaseAnimationFrames) {
+        for (FXKeyframeAnimation *animation in self.animations) {
+            [animation p_emptyFrames];
+        }
+    }
+    
+    self.p_framesCount = self.frames.count;
 }
 
 @end

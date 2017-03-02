@@ -32,19 +32,21 @@
     return _repeats > 0 ? _repeats : 1;
 }
 
-- (void)setFrameImages:(NSArray<UIImage *> *)frameImages {
-    _frameImages = [frameImages copy];
-    if (_frameImages) {
-        self.p_count = _frameImages.count;
-    }
-    if (0 == self.duration) {
-        self.duration = _frameImages.count * _p_interval;
+- (void)setFrames:(NSArray<UIImage *> *)frames {
+    _frames = [frames copy];
+    self.count = _frames.count;
+}
+
+- (void)setCount:(NSUInteger)count {
+    _count = count;
+    if (!_duration) {
+        self.duration = count * _p_interval;
     }
 }
 
 - (void)setDuration:(NSTimeInterval)duration {
     _duration = duration;
-    self.p_interval = _duration / self.frameImages.count;
+    _p_interval = _duration / _count;
 }
 
 #pragma mark - Initilizer
@@ -53,6 +55,11 @@
         _p_interval = 1 / 30.0;
     }
     return self;
+}
+
+#pragma mark - 
+- (void)p_emptyFrames {
+    _frames = nil;
 }
 
 @end

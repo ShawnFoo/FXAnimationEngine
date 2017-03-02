@@ -82,7 +82,10 @@
 
 #pragma mark Action
 - (void)start {
-    self.frameImages = self.animationGroup.p_reverseFrames;
+    [self.animationGroup p_mergeAndReverseAnimationFrames];
+    self.frameImages = [self.animationGroup.frames mutableCopy];
+    self.animationGroup.frames = nil;
+    
     self.accumulator = 0;
     self.displayLink =
     [CADisplayLink fx_displayLinkWithTarget:self
@@ -140,6 +143,7 @@
         if (bImgIndex != self.currentFrameIndex) {
             CALayer *strongActor = self.actor;
             if (strongActor) {
+                FXLogD(@"%@", @(bImgIndex));
                 self.currentFrameIndex = bImgIndex;
                 CGImageRef copyImageRef = [self.frameImages[bImgIndex] fx_decodedCGImageRefCopy];
                 strongActor.contents = (__bridge id)copyImageRef;
@@ -192,7 +196,7 @@
             FXRunBlockSafe(returnInfo, animation, bIsLastRepeat, reversedIndex);
             return;
         }
-        self.playedFrames += animation.p_count;
+        self.playedFrames += animation.count;
         self.playedAnimTime += repeatsDuration;
         timeDiff -= repeatsDuration;
         animation = self.nextAnimation;
@@ -205,7 +209,7 @@
              ofAnimation:(FXKeyframeAnimation *)animation
               returnInfo:(void (^)(BOOL isLastRepeat, NSUInteger frameIndex))returnInfo {
     
-    NSUInteger framesCount = animation.p_count;
+    NSUInteger framesCount = animation.count;
     NSUInteger repeat = floor(time / animation.duration);
     NSUInteger frameIndex = floor((time - repeat * animation.duration) / animation.p_interval);
     frameIndex = frameIndex < framesCount ? frameIndex : framesCount-1;

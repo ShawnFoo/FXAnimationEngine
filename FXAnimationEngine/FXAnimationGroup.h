@@ -17,8 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface FXAnimationGroup : FXAnimation
 
-/** An array of FXAnimation objects. Animations will be run in sequence. */
+/** An array of FXAnimation objects. */
 @property (nullable, nonatomic, copy) NSArray<__kindof FXAnimation *> *animations;
+/** All frames in sequence. If you set this property of animationGroup object, then engine won't access frames from each animation. */
+@property (nullable, nonatomic, copy) NSArray<UIImage *> *frames;
 
 @end
 

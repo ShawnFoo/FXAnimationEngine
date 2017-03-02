@@ -16,8 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface FXKeyframeAnimation : FXAnimation
 
-/** Array of frame images. */
-@property (nullable, nonatomic, copy) NSArray<UIImage *> *frameImages;
+/** Array of images. If you set image frames, you don't need to set count any more. */
+@property (nullable, nonatomic, copy) NSArray<UIImage *> *frames;
+/** The images count. If you set all frames in animationGroup, then you have to set this property. */
+@property (nonatomic, assign) NSUInteger count;
 /** Duration of animation */
 @property (nonatomic, assign) NSTimeInterval duration;
 /** The repeat count of animation  */

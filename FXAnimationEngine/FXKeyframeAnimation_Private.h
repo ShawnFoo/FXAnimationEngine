@@ -10,8 +10,9 @@
 
 @interface FXKeyframeAnimation ()
 
-@property (nonatomic, assign) NSUInteger p_count;
 @property (nonatomic, assign) NSTimeInterval p_interval;
 @property (nonatomic, readonly) NSTimeInterval p_repeatsDuration;
+
+- (void)p_emptyFrames;
 
 @end

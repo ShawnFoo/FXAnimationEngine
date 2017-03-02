@@ -11,6 +11,7 @@
 @interface FXAnimationGroup ()
 
 @property (nonatomic, assign) NSUInteger p_framesCount;
-@property (nonatomic, readonly) NSMutableArray<UIImage *> *p_reverseFrames;
+
+- (void)p_mergeAndReverseAnimationFrames;
 
 @end

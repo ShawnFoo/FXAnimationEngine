@@ -12,8 +12,6 @@
 
 @interface ViewController () <FXAnimationDelegate>
 
-@property (nonatomic, readonly) NSString *resourceDirName;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConst;
@@ -40,8 +38,8 @@
 - (IBAction)start:(id)sender {
     
     [self stop:nil];
-//    [self animation];
-    [self animation2];
+    [self animation];
+//    [self animation2];
 //    [self animation3];
 //    [self animationYouting];
 //    [self animationFeizao];
@@ -63,13 +61,12 @@
 #pragma mark - Animation
 - (void)animation {
     
-    NSString *const kDirName = @"feiji";
-    NSString *const kImgPrefix = @"feiji_";
-    NSString *bundlePath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.resourceDirName] stringByAppendingPathComponent:kDirName];
+    NSString *const kDirName = @"gifts/10086/anim";
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:kDirName];
     
     NSMutableArray<UIImage *> *imgs = [NSMutableArray arrayWithCapacity:106];
     for (int i = 0; i <= 105; i++) {
-        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", kImgPrefix, @(i)]];
+        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(i)]];
         UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
         [imgs addObject:image];
     }
@@ -98,21 +95,22 @@
     
     FXKeyframeAnimation *animation = [FXKeyframeAnimation animationWithIdentifier:@"feiji1"];
     animation.delegate = self;
-    animation.frameImages = [imgs subarrayWithRange:NSMakeRange(0, 56)];
+    animation.count = 56;
     animation.duration = 3.8;
     
     FXKeyframeAnimation *animation2 = [FXKeyframeAnimation animationWithIdentifier:@"feiji2"];
-    animation2.frameImages = [imgs subarrayWithRange:NSMakeRange(57, 22)];
+    animation2.count = 22;
     animation2.duration = 1.5;
     animation2.repeats = 6;
     animation2.delegate = self;
     
     FXKeyframeAnimation *animation3 = [FXKeyframeAnimation animationWithIdentifier:@"feiji3"];
-    animation3.frameImages = [imgs subarrayWithRange:NSMakeRange(79, 27)];
+    animation3.count = 27;
     animation3.duration = 1.8;
     animation3.delegate = self;
     
     FXAnimationGroup *aniamtionGroup = [FXAnimationGroup animationWithIdentifier:@"feiji"];
+    aniamtionGroup.frames = [imgs copy];
     aniamtionGroup.animations = @[animation, animation2, animation3];
     aniamtionGroup.delegate = self;
     
@@ -139,7 +137,7 @@
     }
     
     FXKeyframeAnimation *animation = [FXKeyframeAnimation animationWithIdentifier:@"youting"];
-    animation.frameImages = imgs;
+    animation.frames = imgs;
     animation.duration = 13;
     animation.delegate = self;
     

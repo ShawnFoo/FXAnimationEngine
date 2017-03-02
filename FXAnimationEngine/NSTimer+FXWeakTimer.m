@@ -87,14 +87,12 @@
     if (strongTarget) {
         FXRunBlockSafe(self.linkBlock, link);
         if ([strongTarget respondsToSelector:self.selector]) {
-            id classObject = [strongTarget class];
-            
-            BOOL isClassObject = classObject == strongTarget;
-            id receiver = isClassObject ? object_getClass(classObject) : classObject;
-            
+            id receiver = object_getClass(strongTarget);
             void (*implement)(id, SEL, id) =
             (void (*)(id, SEL, id))class_getMethodImplementation(receiver, self.selector);
-            implement(strongTarget, self.selector, link);
+            if (implement) {
+                implement(strongTarget, self.selector, link);
+            }
         }
     }
     else {
