@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "GiftAnimation.h"
 
-@interface GiftAnimationConfig : NSObject
+@interface GiftAnimationGroup : NSObject
 
 @property (nonatomic, copy) NSString *giftId;
-@property (nonatomic, copy) NSString *path;
 @property (nonatomic, assign) float width;
 @property (nonatomic, assign) float height;
 @property (nonatomic, assign) float bottomY;

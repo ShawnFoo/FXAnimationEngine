@@ -1,5 +1,5 @@
 //
-//  GiftService.h
+//  GiftManager.h
 //  FXAnimationEngineDemo
 //
 //  Created by ShawnFoo on 17/3/2.
@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "GiftItem.h"
-#import "GiftAnimationConfig.h"
+#import "GiftAnimationGroup.h"
 
-@interface GiftService : NSObject
+@interface GiftManager : NSObject
 
-+ (void)asyncLoadGifts;
++ (NSString *)giftVersion;
 
-+ (GiftItem *)giftItemWithId:(NSString *)giftId;
 + (NSArray<GiftItem *> *)giftItems;
-
-+ (GiftAnimationConfig *)giftAnimConfigWithId:(NSString *)giftId;
++ (GiftItem *)giftItemWithId:(NSString *)giftId;
++ (GiftAnimationGroup *)loadGiftAnimGroupWithId:(NSString *)giftId;
 
 @end

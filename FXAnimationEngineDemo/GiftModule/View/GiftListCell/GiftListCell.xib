@@ -58,6 +58,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="gift_item_selected_mark" width="16" height="16"/>
+        <image name="gift_item_selected_mark" width="18" height="18"/>
     </resources>
 </document>

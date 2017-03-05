@@ -1,6 +1,6 @@
 //
 //  NSObject+FXJSONConvert.m
-//
+//  FXKit
 //
 //  Created by ShawnFoo on 9/22/15.
 //  Copyright (c) 2015 ShawnFoo. All rights reserved.
@@ -22,7 +22,7 @@
     return [self yy_modelWithDictionary:dictionary];
 }
 
-+ (NSArray *)fx_instanceWithArray:(NSArray *)array {
++ (NSArray *)fx_instancesWithArray:(NSArray *)array {
     return [NSArray yy_modelArrayWithClass:self json:array];
 }
 

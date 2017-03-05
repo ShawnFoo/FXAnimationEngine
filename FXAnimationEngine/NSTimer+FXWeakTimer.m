@@ -58,7 +58,6 @@
 @implementation FXWeakTarget
 
 - (void)timerBlockInvoker:(NSTimer *)timer {
-    
     if (timer.valid) {
         id strongTarget = self.target;
         if (strongTarget) {
@@ -82,7 +81,6 @@
 }
 
 - (void)linkBlockInvoker:(CADisplayLink *)link {
-    
     id strongTarget = self.target;
     if (strongTarget) {
         FXRunBlockSafe(self.linkBlock, link);

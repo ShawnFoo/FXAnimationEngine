@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GiftItem;
 
 @interface GiftListViewController : UIViewController
+
+- (void)dismissGiftListViewController;
+
+#pragma mark - For Delegate
+- (void)userDidClickSendButtonWithGiftItem:(GiftItem *)item;
 
 @end

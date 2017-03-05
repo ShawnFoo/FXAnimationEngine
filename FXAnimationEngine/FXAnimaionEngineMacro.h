@@ -23,10 +23,10 @@
 exceptionWithName:FXExceptionName \
 reason:[NSString stringWithFormat:format, ##__VA_ARGS__]  \
 userInfo:nil];
-#define FXSubclassNoImplementException FXException(@"Please override this method(%s [Line %d]) in subclass", __PRETTY_FUNCTION__, __LINE__)
 #else
 #define FXException(...) do {} while(0)
 #endif
+#define FXSubclassNoImplementException FXException(@"Please override this method(%s [Line %d]) in subclass", __PRETTY_FUNCTION__, __LINE__);
 
 #define FXRunBlockSafe(block, ...) {\
 if (block) {\

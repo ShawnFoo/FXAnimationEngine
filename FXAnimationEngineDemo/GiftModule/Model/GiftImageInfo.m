@@ -7,21 +7,12 @@
 //
 
 #import "GiftImageInfo.h"
-
-static NSString *const kRootDirName = @"gifts";
-static NSString *const kAnimDirName = @"anim";
-static NSString *const kListDirName = @"list";
-
-static const NSTimeInterval kListFrameInterval = 0.1;
+#import "GiftResourceLoader.h"
 
 @interface GiftImageInfo ()
 
 @property (nonatomic, copy) NSString *giftId;
-
-@property (nonatomic, readonly) NSString *resourcePath;
-@property (nonatomic, readonly) NSString *giftDirPath;
-@property (nonatomic, readonly) NSString *listDirPath;
-@property (nonatomic, readonly) NSString *animDirPath;
+@property (nonatomic, readonly) NSTimeInterval listFrameInterval;
 
 @end
 
@@ -35,55 +26,21 @@ static const NSTimeInterval kListFrameInterval = 0.1;
 }
 
 #pragma mark - Accessor
-#pragma mark Path
-- (NSString *)resourcePath {
-    return [[NSBundle mainBundle] resourcePath];
+- (NSTimeInterval)listFrameInterval {
+    return 0.1;
 }
 
-- (NSString *)giftDirPath {
-    return [[[self resourcePath] stringByAppendingPathComponent:kRootDirName] stringByAppendingPathComponent:self.giftId];
-}
-
-- (NSString *)listDirPath {
-    return [self.giftDirPath stringByAppendingPathComponent:kListDirName];
-}
-
-- (NSString *)animDirPath {
-    return [self.giftDirPath stringByAppendingPathComponent:kAnimDirName];
-}
-
-#pragma mark Image
 - (UIImage *)listFirstFrame {
-    NSString *path = [self.listDirPath stringByAppendingPathComponent:@"0.png"];
-    return [self imageWithPath:path];
+    return [GiftResourceLoader giftListFirstFrameOfGiftId:_giftId];
 }
 
 - (UIImage *)listAnimatedImage {
-    NSArray *images = [self imagesWithDirPath:self.listDirPath];
-    return [UIImage animatedImageWithImages:images duration:images.count * kListFrameInterval];
+    NSArray *images = [GiftResourceLoader giftListImagesOfGiftId:_giftId];
+    return [UIImage animatedImageWithImages:images duration:images.count * self.listFrameInterval];
 }
 
 - (NSArray<UIImage *> *)animationFrames {
-    return [self imagesWithDirPath:self.animDirPath];
-}
-
-#pragma mark - ShortCut
-- (UIImage *)imageWithPath:(NSString *)path {
-    return [UIImage imageWithContentsOfFile:path];
-}
-
-- (NSArray<UIImage *> *)imagesWithDirPath:(NSString *)dirPath {
-    NSMutableArray *images = [NSMutableArray array];
-    NSUInteger index = 0;
-    while (true) {
-        NSString *imagePath = [dirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(index)]];
-        UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-        if (!image) {
-            break;
-        }
-        [images addObject:image];
-    }
-    return [images copy];
+    return [GiftResourceLoader animationImagesOfGiftId:_giftId];
 }
 
 @end

@@ -10,11 +10,14 @@
 #import "FXKeyframeAnimation.h"
 #import "FXAnimationGroup.h"
 
-@interface UIView (FXAnimationEngine)
+@interface CALayer (FXAnimationEngine)
 
 @property (nonatomic, readonly) BOOL fx_isAnimating;
 
-- (void)fx_startAnimation:(FXAnimation *)animation;
+- (void)fx_playAnimation:(FXAnimation *)animation;
+- (void)fx_playAnimationAsyncDecodeImage:(FXAnimation *)animation;
+- (void)fx_playAnimation:(FXAnimation *)animation asyncDecodeImage:(BOOL)asyncDecodeImage;
+
 - (void)fx_stopAnimation;
 
 @end

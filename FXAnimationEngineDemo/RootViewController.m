@@ -6,11 +6,10 @@
 //  Copyright © 2016年 ShawnFoo. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "UIView+FXAnimationEngine.h"
-#import "FXDeallocMonitor.h"
+#import "RootViewController.h"
+#import "CALayer+FXAnimationEngine.h"
 
-@interface ViewController () <FXAnimationDelegate>
+@interface RootViewController () <FXAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConst;
@@ -20,7 +19,7 @@
 
 @end
 
-@implementation ViewController
+@implementation RootViewController
 
 #pragma mark - Accessor
 - (NSString *)resourceDirName {
@@ -38,8 +37,8 @@
 - (IBAction)start:(id)sender {
     
     [self stop:nil];
-    [self animation];
-//    [self animation2];
+//    [self animation];
+    [self animation2];
 //    [self animation3];
 //    [self animationYouting];
 //    [self animationFeizao];
@@ -48,7 +47,7 @@
 }
 
 - (IBAction)stop:(id)sender {
-    [self.animDirector fx_stopAnimation];
+    [self.animDirector.layer fx_stopAnimation];
     self.bottomConst.constant = 0;
 }
 
@@ -126,17 +125,16 @@
 
 - (void)animation2 {
     
-    NSString *const kDirName = @"youting";
-    NSString *const kImgPrefix = @"youting_";
-    NSString *bundlePath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.resourceDirName] stringByAppendingPathComponent:kDirName];
-    NSMutableArray<UIImage *> *imgs = [NSMutableArray arrayWithCapacity:102];
+    NSString *const kDirName = @"gifts/10087/anim";
+    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:kDirName];
+    
+    NSMutableArray<UIImage *> *imgs = [NSMutableArray arrayWithCapacity:106];
     for (int i = 0; i <= 128; i++) {
-        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", kImgPrefix, @(i)]];
+        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(i)]];
         UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
         [imgs addObject:image];
     }
-    
-    FXKeyframeAnimation *animation = [FXKeyframeAnimation animationWithIdentifier:@"youting"];
+    FXKeyframeAnimation *animation = [FXKeyframeAnimation animationWithIdentifier:@"castle"];
     animation.frames = imgs;
     animation.duration = 13;
     animation.delegate = self;
@@ -281,8 +279,8 @@
 //}
 
 
-- (void)playAnimation:(__kindof FXAnimation *)item {
-    [self.animDirector fx_startAnimation:item];
+- (void)playAnimation:(__kindof FXAnimation *)animation {
+    [self.animDirector.layer fx_playAnimationAsyncDecodeImage:animation];
 }
 
 #pragma mark - FXAnimationDelegate

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GiftItem;
 
 @interface GiftListCell : UICollectionViewCell
+
++ (CGFloat)cellHeight;
++ (NSString *)identifier;
+
+- (void)setupCellWithGiftItem:(GiftItem *)giftItem selected:(BOOL)selected;
 
 @end

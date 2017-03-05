@@ -7,40 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2972DAF31E670F7900906D92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033E21D489013008D5C4F /* ViewController.m */; };
+		290D84ED1E6C706700F992DC /* GiftListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84EB1E6C706700F992DC /* GiftListCell.m */; };
+		290D84EE1E6C706700F992DC /* GiftListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290D84EC1E6C706700F992DC /* GiftListCell.xib */; };
+		290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */; };
+		29448BC51E6C68A000987C6C /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29448BC41E6C68A000987C6C /* RootViewController.xib */; };
+		29448BD11E6C69B000987C6C /* UIColor+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCA1E6C69B000987C6C /* UIColor+Convert.m */; };
+		29448BD21E6C69B000987C6C /* NSObject+FXJSONConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */; };
+		29448BD31E6C69B000987C6C /* FXPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BD01E6C69B000987C6C /* FXPage.m */; };
+		2972DAF31E670F7900906D92 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033E21D489013008D5C4F /* RootViewController.m */; };
 		2972DAF71E670F7900906D92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DF1D489013008D5C4F /* AppDelegate.m */; };
 		2972DAFA1E670F7900906D92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DC1D489013008D5C4F /* main.m */; };
-		2972DAFC1E670F7900906D92 /* FXDeallocMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F2AE011D5D8373003BC13F /* FXDeallocMonitor.m */; };
 		2972DB001E670F7900906D92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651033E91D489013008D5C4F /* LaunchScreen.storyboard */; };
 		2972DB021E670F7900906D92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651033E71D489013008D5C4F /* Assets.xcassets */; };
-		2972DB031E670F7900906D92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651033E41D489013008D5C4F /* Main.storyboard */; };
-		297C6A4B1E686E4C006F2A0B /* NSObject+FXJSONConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 297C6A4A1E686E4C006F2A0B /* NSObject+FXJSONConvert.m */; };
 		297C6E901E68733D006F2A0B /* gifts in Resources */ = {isa = PBXBuildFile; fileRef = 297C6E8F1E68733D006F2A0B /* gifts */; };
+		298E73EF1E6A6880009B3D25 /* FXSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 298E73EE1E6A6880009B3D25 /* FXSwitch.m */; };
 		29B1B6421E67211100F88B25 /* FXAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6351E67211100F88B25 /* FXAnimation.m */; };
 		29B1B6431E67211100F88B25 /* FXAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6371E67211100F88B25 /* FXAnimationGroup.m */; };
 		29B1B6441E67211100F88B25 /* FXKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63A1E67211100F88B25 /* FXKeyframeAnimation.m */; };
 		29B1B6451E67211100F88B25 /* NSTimer+FXWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63D1E67211100F88B25 /* NSTimer+FXWeakTimer.m */; };
 		29B1B6461E67211100F88B25 /* UIImage+FXDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63F1E67211100F88B25 /* UIImage+FXDecoder.m */; };
-		29B1B6471E67211100F88B25 /* UIView+FXAnimationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6411E67211100F88B25 /* UIView+FXAnimationEngine.m */; };
+		29B1B6471E67211100F88B25 /* CALayer+FXAnimationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */; };
+		29F178F71E6AFD6C00C46FE5 /* GiftResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F178F61E6AFD6C00C46FE5 /* GiftResourceLoader.m */; };
 		54ED31024B54DBBF7F08A81C /* libPods-FXAnimationEngineDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9E5F295DFECD0CD5F0DDF5 /* libPods-FXAnimationEngineDemo.a */; };
 		654F7EDA1E6806D000700DFA /* GiftListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7EC91E6806D000700DFA /* GiftListViewController.m */; };
 		654F7EDB1E6806D000700DFA /* GiftListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ECB1E6806D000700DFA /* GiftListViewModel.m */; };
 		654F7EDC1E6806D000700DFA /* GiftAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ECE1E6806D000700DFA /* GiftAnimation.m */; };
-		654F7EDD1E6806D000700DFA /* GiftAnimationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED01E6806D000700DFA /* GiftAnimationConfig.m */; };
+		654F7EDD1E6806D000700DFA /* GiftAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED01E6806D000700DFA /* GiftAnimationGroup.m */; };
 		654F7EDE1E6806D000700DFA /* GiftItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED21E6806D000700DFA /* GiftItem.m */; };
-		654F7EDF1E6806D000700DFA /* GiftService.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED51E6806D000700DFA /* GiftService.m */; };
-		654F7EE01E6806D000700DFA /* GiftListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED81E6806D000700DFA /* GiftListCell.m */; };
-		654F7EE11E6806D000700DFA /* GiftListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654F7ED91E6806D000700DFA /* GiftListCell.xib */; };
+		654F7EDF1E6806D000700DFA /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED51E6806D000700DFA /* GiftManager.m */; };
 		65DB7ED11E681E580092CFBE /* GiftImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB7ED01E681E580092CFBE /* GiftImageInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		171D496EE877DC7B1B39D332 /* Pods-FXKeyframeAnimationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXKeyframeAnimationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FXKeyframeAnimationDemo/Pods-FXKeyframeAnimationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		1A688BD3AF24B6126B29ED13 /* Pods-FXAnimationEngineDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXAnimationEngineDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo.release.xcconfig"; sourceTree = "<group>"; };
+		290D84EA1E6C706700F992DC /* GiftListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftListCell.h; sourceTree = "<group>"; };
+		290D84EB1E6C706700F992DC /* GiftListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftListCell.m; sourceTree = "<group>"; };
+		290D84EC1E6C706700F992DC /* GiftListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftListCell.xib; sourceTree = "<group>"; };
+		290D84EF1E6C708B00F992DC /* GiftFrameAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftFrameAnimationView.h; sourceTree = "<group>"; };
+		290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftFrameAnimationView.m; sourceTree = "<group>"; };
+		29448BC41E6C68A000987C6C /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		29448BC91E6C69B000987C6C /* UIColor+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Convert.h"; sourceTree = "<group>"; };
+		29448BCA1E6C69B000987C6C /* UIColor+Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Convert.m"; sourceTree = "<group>"; };
+		29448BCC1E6C69B000987C6C /* NSObject+FXJSONConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXJSONConvert.h"; sourceTree = "<group>"; };
+		29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXJSONConvert.m"; sourceTree = "<group>"; };
+		29448BCF1E6C69B000987C6C /* FXPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPage.h; sourceTree = "<group>"; };
+		29448BD01E6C69B000987C6C /* FXPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXPage.m; sourceTree = "<group>"; };
 		2972DB091E670F7900906D92 /* FXAnimationEngineDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXAnimationEngineDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		297C6A491E686E4C006F2A0B /* NSObject+FXJSONConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXJSONConvert.h"; sourceTree = "<group>"; };
-		297C6A4A1E686E4C006F2A0B /* NSObject+FXJSONConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXJSONConvert.m"; sourceTree = "<group>"; };
 		297C6E8F1E68733D006F2A0B /* gifts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gifts; sourceTree = "<group>"; };
+		298E73ED1E6A6880009B3D25 /* FXSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSwitch.h; sourceTree = "<group>"; };
+		298E73EE1E6A6880009B3D25 /* FXSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSwitch.m; sourceTree = "<group>"; };
+		298E74041E6AE241009B3D25 /* FXDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataSource.h; sourceTree = "<group>"; };
 		29B1B6331E67211100F88B25 /* FXAnimaionEngineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAnimaionEngineMacro.h; sourceTree = "<group>"; };
 		29B1B6341E67211100F88B25 /* FXAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAnimation.h; sourceTree = "<group>"; };
 		29B1B6351E67211100F88B25 /* FXAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAnimation.m; sourceTree = "<group>"; };
@@ -54,14 +71,15 @@
 		29B1B63D1E67211100F88B25 /* NSTimer+FXWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+FXWeakTimer.m"; sourceTree = "<group>"; };
 		29B1B63E1E67211100F88B25 /* UIImage+FXDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FXDecoder.h"; sourceTree = "<group>"; };
 		29B1B63F1E67211100F88B25 /* UIImage+FXDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FXDecoder.m"; sourceTree = "<group>"; };
-		29B1B6401E67211100F88B25 /* UIView+FXAnimationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FXAnimationEngine.h"; sourceTree = "<group>"; };
-		29B1B6411E67211100F88B25 /* UIView+FXAnimationEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FXAnimationEngine.m"; sourceTree = "<group>"; };
+		29B1B6401E67211100F88B25 /* CALayer+FXAnimationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+FXAnimationEngine.h"; sourceTree = "<group>"; };
+		29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+FXAnimationEngine.m"; sourceTree = "<group>"; };
+		29F178F51E6AFD6C00C46FE5 /* GiftResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftResourceLoader.h; sourceTree = "<group>"; };
+		29F178F61E6AFD6C00C46FE5 /* GiftResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftResourceLoader.m; sourceTree = "<group>"; };
 		651033DC1D489013008D5C4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		651033DE1D489013008D5C4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		651033DF1D489013008D5C4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		651033E11D489013008D5C4F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		651033E21D489013008D5C4F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		651033E51D489013008D5C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		651033E11D489013008D5C4F /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		651033E21D489013008D5C4F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		651033E71D489013008D5C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		651033EA1D489013008D5C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		651033EC1D489013008D5C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,20 +89,14 @@
 		654F7ECB1E6806D000700DFA /* GiftListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftListViewModel.m; sourceTree = "<group>"; };
 		654F7ECD1E6806D000700DFA /* GiftAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftAnimation.h; sourceTree = "<group>"; };
 		654F7ECE1E6806D000700DFA /* GiftAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftAnimation.m; sourceTree = "<group>"; };
-		654F7ECF1E6806D000700DFA /* GiftAnimationConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftAnimationConfig.h; sourceTree = "<group>"; };
-		654F7ED01E6806D000700DFA /* GiftAnimationConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftAnimationConfig.m; sourceTree = "<group>"; };
+		654F7ECF1E6806D000700DFA /* GiftAnimationGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftAnimationGroup.h; sourceTree = "<group>"; };
+		654F7ED01E6806D000700DFA /* GiftAnimationGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftAnimationGroup.m; sourceTree = "<group>"; };
 		654F7ED11E6806D000700DFA /* GiftItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftItem.h; sourceTree = "<group>"; };
 		654F7ED21E6806D000700DFA /* GiftItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftItem.m; sourceTree = "<group>"; };
-		654F7ED41E6806D000700DFA /* GiftService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftService.h; sourceTree = "<group>"; };
-		654F7ED51E6806D000700DFA /* GiftService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftService.m; sourceTree = "<group>"; };
-		654F7ED71E6806D000700DFA /* GiftListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftListCell.h; sourceTree = "<group>"; };
-		654F7ED81E6806D000700DFA /* GiftListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftListCell.m; sourceTree = "<group>"; };
-		654F7ED91E6806D000700DFA /* GiftListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftListCell.xib; sourceTree = "<group>"; };
-		654F7EE21E68082600700DFA /* GiftItem_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftItem_Private.h; sourceTree = "<group>"; };
+		654F7ED41E6806D000700DFA /* GiftManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
+		654F7ED51E6806D000700DFA /* GiftManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
 		65DB7ECF1E681E580092CFBE /* GiftImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftImageInfo.h; sourceTree = "<group>"; };
 		65DB7ED01E681E580092CFBE /* GiftImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftImageInfo.m; sourceTree = "<group>"; };
-		65F2AE001D5D8373003BC13F /* FXDeallocMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDeallocMonitor.h; sourceTree = "<group>"; };
-		65F2AE011D5D8373003BC13F /* FXDeallocMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDeallocMonitor.m; sourceTree = "<group>"; };
 		830D8AF8DD0E626F4CCD8A83 /* libPods-FXKeyframeAnimationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FXKeyframeAnimationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8972B42250B821B61529F0C5 /* Pods-FXAnimationEngineDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXAnimationEngineDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8F9E5F295DFECD0CD5F0DDF5 /* libPods-FXAnimationEngineDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FXAnimationEngineDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,12 +115,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290D84E81E6C706700F992DC /* GiftFrameAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				290D84EF1E6C708B00F992DC /* GiftFrameAnimationView.h */,
+				290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */,
+			);
+			path = GiftFrameAnimationView;
+			sourceTree = "<group>";
+		};
+		290D84E91E6C706700F992DC /* GiftListCell */ = {
+			isa = PBXGroup;
+			children = (
+				290D84EA1E6C706700F992DC /* GiftListCell.h */,
+				290D84EB1E6C706700F992DC /* GiftListCell.m */,
+				290D84EC1E6C706700F992DC /* GiftListCell.xib */,
+			);
+			path = GiftListCell;
+			sourceTree = "<group>";
+		};
+		29448BC61E6C691300987C6C /* DemoRootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				651033E11D489013008D5C4F /* RootViewController.h */,
+				651033E21D489013008D5C4F /* RootViewController.m */,
+				29448BC41E6C68A000987C6C /* RootViewController.xib */,
+			);
+			name = DemoRootViewController;
+			sourceTree = "<group>";
+		};
+		29448BC71E6C69AF00987C6C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				29448BC81E6C69B000987C6C /* Color */,
+				29448BCB1E6C69B000987C6C /* JSONConvert */,
+				29448BCE1E6C69B000987C6C /* Model */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		29448BC81E6C69B000987C6C /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				29448BC91E6C69B000987C6C /* UIColor+Convert.h */,
+				29448BCA1E6C69B000987C6C /* UIColor+Convert.m */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		29448BCB1E6C69B000987C6C /* JSONConvert */ = {
+			isa = PBXGroup;
+			children = (
+				29448BCC1E6C69B000987C6C /* NSObject+FXJSONConvert.h */,
+				29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */,
+			);
+			path = JSONConvert;
+			sourceTree = "<group>";
+		};
+		29448BCE1E6C69B000987C6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29448BCF1E6C69B000987C6C /* FXPage.h */,
+				29448BD01E6C69B000987C6C /* FXPage.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		298E73EB1E6A6856009B3D25 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				29B1B6321E67211100F88B25 /* FXAnimationEngine */,
+				298E73EC1E6A6880009B3D25 /* FXSwitch */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		298E73EC1E6A6880009B3D25 /* FXSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				298E73ED1E6A6880009B3D25 /* FXSwitch.h */,
+				298E73EE1E6A6880009B3D25 /* FXSwitch.m */,
+			);
+			name = FXSwitch;
+			path = Switch;
+			sourceTree = "<group>";
+		};
 		29B1B6321E67211100F88B25 /* FXAnimationEngine */ = {
 			isa = PBXGroup;
 			children = (
 				29B1B6331E67211100F88B25 /* FXAnimaionEngineMacro.h */,
-				29B1B6401E67211100F88B25 /* UIView+FXAnimationEngine.h */,
-				29B1B6411E67211100F88B25 /* UIView+FXAnimationEngine.m */,
+				29B1B6401E67211100F88B25 /* CALayer+FXAnimationEngine.h */,
+				29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */,
 				29B1B6341E67211100F88B25 /* FXAnimation.h */,
 				29B1B6351E67211100F88B25 /* FXAnimation.m */,
 				29B1B6361E67211100F88B25 /* FXAnimationGroup.h */,
@@ -124,6 +221,28 @@
 			);
 			path = FXAnimationEngine;
 			sourceTree = SOURCE_ROOT;
+		};
+		29F178F31E6AF47B00C46FE5 /* GiftAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				654F7ECD1E6806D000700DFA /* GiftAnimation.h */,
+				654F7ECE1E6806D000700DFA /* GiftAnimation.m */,
+				654F7ECF1E6806D000700DFA /* GiftAnimationGroup.h */,
+				654F7ED01E6806D000700DFA /* GiftAnimationGroup.m */,
+			);
+			name = GiftAnimation;
+			sourceTree = "<group>";
+		};
+		29F178F41E6AF48400C46FE5 /* GiftItem */ = {
+			isa = PBXGroup;
+			children = (
+				654F7ED11E6806D000700DFA /* GiftItem.h */,
+				654F7ED21E6806D000700DFA /* GiftItem.m */,
+				65DB7ECF1E681E580092CFBE /* GiftImageInfo.h */,
+				65DB7ED01E681E580092CFBE /* GiftImageInfo.m */,
+			);
+			name = GiftItem;
+			sourceTree = "<group>";
 		};
 		5DE2393FC8CCEA3DEA8B2DDA /* Pods */ = {
 			isa = PBXGroup;
@@ -159,13 +278,12 @@
 			children = (
 				651033DE1D489013008D5C4F /* AppDelegate.h */,
 				651033DF1D489013008D5C4F /* AppDelegate.m */,
-				651033E11D489013008D5C4F /* ViewController.h */,
-				651033E21D489013008D5C4F /* ViewController.m */,
+				29448BC61E6C691300987C6C /* DemoRootViewController */,
+				65429C281E6977F200D2B148 /* Protocol */,
 				654F7EC61E6806D000700DFA /* GiftModule */,
-				29B1B6321E67211100F88B25 /* FXAnimationEngine */,
-				654E64821E669FBF007A50DF /* Util */,
+				29448BC71E6C69AF00987C6C /* Util */,
+				298E73EB1E6A6856009B3D25 /* Vendor */,
 				6535FFE71E66B73F00558A86 /* Resource */,
-				651033E41D489013008D5C4F /* Main.storyboard */,
 				651033E91D489013008D5C4F /* LaunchScreen.storyboard */,
 				651033EC1D489013008D5C4F /* Info.plist */,
 				651033DB1D489013008D5C4F /* Supporting Files */,
@@ -190,22 +308,19 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		654E64821E669FBF007A50DF /* Util */ = {
+		65429C281E6977F200D2B148 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				65F2AE001D5D8373003BC13F /* FXDeallocMonitor.h */,
-				65F2AE011D5D8373003BC13F /* FXDeallocMonitor.m */,
-				297C6A491E686E4C006F2A0B /* NSObject+FXJSONConvert.h */,
-				297C6A4A1E686E4C006F2A0B /* NSObject+FXJSONConvert.m */,
+				298E74041E6AE241009B3D25 /* FXDataSource.h */,
 			);
-			name = Util;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		654F7EC61E6806D000700DFA /* GiftModule */ = {
 			isa = PBXGroup;
 			children = (
-				654F7EC71E6806D000700DFA /* Controller */,
 				654F7ECC1E6806D000700DFA /* Model */,
+				654F7EC71E6806D000700DFA /* Controller */,
 				654F7ED61E6806D000700DFA /* View */,
 				654F7ED31E6806D000700DFA /* Service */,
 			);
@@ -226,15 +341,8 @@
 		654F7ECC1E6806D000700DFA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				654F7ED11E6806D000700DFA /* GiftItem.h */,
-				654F7ED21E6806D000700DFA /* GiftItem.m */,
-				654F7EE21E68082600700DFA /* GiftItem_Private.h */,
-				654F7ECD1E6806D000700DFA /* GiftAnimation.h */,
-				654F7ECE1E6806D000700DFA /* GiftAnimation.m */,
-				654F7ECF1E6806D000700DFA /* GiftAnimationConfig.h */,
-				654F7ED01E6806D000700DFA /* GiftAnimationConfig.m */,
-				65DB7ECF1E681E580092CFBE /* GiftImageInfo.h */,
-				65DB7ED01E681E580092CFBE /* GiftImageInfo.m */,
+				29F178F41E6AF48400C46FE5 /* GiftItem */,
+				29F178F31E6AF47B00C46FE5 /* GiftAnimation */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,8 +350,10 @@
 		654F7ED31E6806D000700DFA /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				654F7ED41E6806D000700DFA /* GiftService.h */,
-				654F7ED51E6806D000700DFA /* GiftService.m */,
+				654F7ED41E6806D000700DFA /* GiftManager.h */,
+				654F7ED51E6806D000700DFA /* GiftManager.m */,
+				29F178F51E6AFD6C00C46FE5 /* GiftResourceLoader.h */,
+				29F178F61E6AFD6C00C46FE5 /* GiftResourceLoader.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -251,9 +361,8 @@
 		654F7ED61E6806D000700DFA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				654F7ED71E6806D000700DFA /* GiftListCell.h */,
-				654F7ED81E6806D000700DFA /* GiftListCell.m */,
-				654F7ED91E6806D000700DFA /* GiftListCell.xib */,
+				290D84E81E6C706700F992DC /* GiftFrameAnimationView */,
+				290D84E91E6C706700F992DC /* GiftListCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,9 +437,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2972DB001E670F7900906D92 /* LaunchScreen.storyboard in Resources */,
-				654F7EE11E6806D000700DFA /* GiftListCell.xib in Resources */,
+				29448BC51E6C68A000987C6C /* RootViewController.xib in Resources */,
 				2972DB021E670F7900906D92 /* Assets.xcassets in Resources */,
-				2972DB031E670F7900906D92 /* Main.storyboard in Resources */,
+				290D84EE1E6C706700F992DC /* GiftListCell.xib in Resources */,
 				297C6E901E68733D006F2A0B /* gifts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,39 +499,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29448BD31E6C69B000987C6C /* FXPage.m in Sources */,
 				654F7EDC1E6806D000700DFA /* GiftAnimation.m in Sources */,
 				29B1B6461E67211100F88B25 /* UIImage+FXDecoder.m in Sources */,
-				654F7EE01E6806D000700DFA /* GiftListCell.m in Sources */,
-				654F7EDD1E6806D000700DFA /* GiftAnimationConfig.m in Sources */,
-				654F7EDF1E6806D000700DFA /* GiftService.m in Sources */,
-				2972DAF31E670F7900906D92 /* ViewController.m in Sources */,
+				290D84ED1E6C706700F992DC /* GiftListCell.m in Sources */,
+				654F7EDD1E6806D000700DFA /* GiftAnimationGroup.m in Sources */,
+				654F7EDF1E6806D000700DFA /* GiftManager.m in Sources */,
+				298E73EF1E6A6880009B3D25 /* FXSwitch.m in Sources */,
+				2972DAF31E670F7900906D92 /* RootViewController.m in Sources */,
 				2972DAF71E670F7900906D92 /* AppDelegate.m in Sources */,
 				65DB7ED11E681E580092CFBE /* GiftImageInfo.m in Sources */,
 				29B1B6431E67211100F88B25 /* FXAnimationGroup.m in Sources */,
 				654F7EDE1E6806D000700DFA /* GiftItem.m in Sources */,
+				29F178F71E6AFD6C00C46FE5 /* GiftResourceLoader.m in Sources */,
 				29B1B6441E67211100F88B25 /* FXKeyframeAnimation.m in Sources */,
+				29448BD11E6C69B000987C6C /* UIColor+Convert.m in Sources */,
 				29B1B6451E67211100F88B25 /* NSTimer+FXWeakTimer.m in Sources */,
-				297C6A4B1E686E4C006F2A0B /* NSObject+FXJSONConvert.m in Sources */,
+				29448BD21E6C69B000987C6C /* NSObject+FXJSONConvert.m in Sources */,
 				29B1B6421E67211100F88B25 /* FXAnimation.m in Sources */,
-				29B1B6471E67211100F88B25 /* UIView+FXAnimationEngine.m in Sources */,
+				29B1B6471E67211100F88B25 /* CALayer+FXAnimationEngine.m in Sources */,
 				654F7EDB1E6806D000700DFA /* GiftListViewModel.m in Sources */,
 				2972DAFA1E670F7900906D92 /* main.m in Sources */,
+				290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */,
 				654F7EDA1E6806D000700DFA /* GiftListViewController.m in Sources */,
-				2972DAFC1E670F7900906D92 /* FXDeallocMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		651033E41D489013008D5C4F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				651033E51D489013008D5C4F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		651033E91D489013008D5C4F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,6 +545,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WGV2V2YLC8;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					MAS_SHORTHAND_GLOBALS,
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/FXAnimationEngineDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -454,6 +564,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WGV2V2YLC8;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					MAS_SHORTHAND_GLOBALS,
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/FXAnimationEngineDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";

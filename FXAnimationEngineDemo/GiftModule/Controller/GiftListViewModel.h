@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FXDataSource.h"
 #import "GiftItem.h"
 
-@interface GiftListViewModel : NSObject
+@interface GiftListViewModel : NSObject <FXDataSource>
 
-@property (nonatomic, copy, readonly) NSArray<GiftItem *> *items;
+/**
+ 0 - success, 1 - empty
+ */
+@property (nonatomic, readonly) NSUInteger loadGiftListResult;
+@property (nonatomic, weak, readonly) GiftItem *selectedGiftItem;
 
 - (void)asyncLoadGiftList;
+- (void)setSelected:(BOOL)selected atIndexPath:(NSIndexPath *)indexPath;
 
 @end

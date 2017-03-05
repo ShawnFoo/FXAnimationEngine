@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GiftAnimationConfig.h"
+#import "GiftImageInfo.h"
 
 @interface GiftItem : NSObject
 
 @property (nonatomic, copy) NSString *giftId;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *path;
+@property (nonatomic, copy) NSURL *zipURL;
+
+@property (nonatomic, readonly) GiftImageInfo *imageInfo;
 
 @end

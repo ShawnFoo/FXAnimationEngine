@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   gifts.plist
-   FXAnimationEngineDemo
-
-   Created by jinchu on 17/3/2.
-   Copyright (c) 2017年 ShawnFoo. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+    <key>gifts</key>
+    <array>
+        <dict>
+            <key>giftId</key>
+            <string>10086</string>
+            <key>name</key>
+            <string>plane</string>
+            <key>zipURL</key>
+            <string>www.cnd.com/resource/10086.zip</string>
+        </dict>
+        <dict>
+            <key>giftId</key>
+            <string>10087</string>
+            <key>name</key>
+            <string>castle</string>
+            <key>zipURL</key>
+            <string>www.cnd.com/resource/10087.zip</string>
+        </dict>
+        <dict>
+            <key>giftId</key>
+            <string>10088</string>
+            <key>name</key>
+            <string>cupid</string>
+            <key>zipURL</key>
+            <string>www.cnd.com/resource/10088.zip</string>
+        </dict>
+        <dict>
+            <key>giftId</key>
+            <string>10089</string>
+            <key>name</key>
+            <string>yacht</string>
+            <key>zipURL</key>
+            <string>www.cnd.com/resource/10089.zip</string>
+        </dict>
+    </array>
+    <key>version</key>
+    <string>66</string>
+</dict>
 </plist>

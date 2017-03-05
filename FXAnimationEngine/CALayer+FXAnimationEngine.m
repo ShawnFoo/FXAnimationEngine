@@ -6,7 +6,7 @@
 //  Copyright © 2016年 ShawnFoo. All rights reserved.
 //
 
-#import "UIView+FXAnimationEngine.h"
+#import "CALayer+FXAnimationEngine.h"
 #import <objc/runtime.h>
 #import "FXAnimaionEngineMacro.h"
 #import "FXAnimationGroup_Private.h"
@@ -27,6 +27,7 @@
 
 @property (nonatomic, weak) CALayer *actor;
 @property (nonatomic, weak) id<FXAnimationEngineDelegate> delegate;
+@property (nonatomic, assign, getter=isAsyncDecodeImage) BOOL asyncDecodeImage;
 
 @property (nonatomic, strong) FXAnimationGroup *animationGroup;
 @property (nonatomic, weak) FXKeyframeAnimation *playingAnimation;
@@ -143,10 +144,25 @@
         if (bImgIndex != self.currentFrameIndex) {
             CALayer *strongActor = self.actor;
             if (strongActor) {
-                FXLogD(@"%@", @(bImgIndex));
                 self.currentFrameIndex = bImgIndex;
-                CGImageRef copyImageRef = [self.frameImages[bImgIndex] fx_decodedCGImageRefCopy];
-                strongActor.contents = (__bridge id)copyImageRef;
+                UIImage *frame = self.frameImages[bImgIndex];
+                if (self.isAsyncDecodeImage) {
+                    __weak typeof(self) weakSelf = self;
+                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+                        CGImageRef copyImageRef = [frame fx_decodedCGImageRefCopy];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if (!weakSelf.animationGroup) {
+                                return;
+                            }
+                            weakSelf.actor.contents = (__bridge id)copyImageRef;
+                        });
+                    });
+                }
+                else {
+                    CGImageRef copyImageRef = [frame fx_decodedCGImageRefCopy];
+                    strongActor.contents = (__bridge id)copyImageRef;
+                }
+
                 if (bIsLastRepeat) {
                     [self.frameImages removeLastObject];
                 }
@@ -165,8 +181,7 @@
 }
 
 - (void)imageIndexAtTime:(NSTimeInterval)time
-              returnInfo:(void (^)(FXKeyframeAnimation *animation, BOOL isLastRepeat, NSInteger reversedImageIndex))returnInfo
-{
+              returnInfo:(void (^)(FXKeyframeAnimation *animation, BOOL isLastRepeat, NSInteger reversedImageIndex))returnInfo {
     if (time < self.lastQueryTime) {
         self.playedFrames = 0;
         self.playedAnimTime = 0;
@@ -208,7 +223,6 @@
 - (void)frameIndexAtTime:(NSTimeInterval)time
              ofAnimation:(FXKeyframeAnimation *)animation
               returnInfo:(void (^)(BOOL isLastRepeat, NSUInteger frameIndex))returnInfo {
-    
     NSUInteger framesCount = animation.count;
     NSUInteger repeat = floor(time / animation.duration);
     NSUInteger frameIndex = floor((time - repeat * animation.duration) / animation.p_interval);
@@ -241,8 +255,8 @@
 @end
 
 
-#pragma mark - UIView + FXAnimationEngine
-@implementation UIView (FXAnimationEngine)
+#pragma mark - CALayer + FXAnimationEngine
+@implementation CALayer (FXAnimationEngine)
 
 #pragma mark Accessor
 - (void)setFx_engine:(FXAnimationEngine *)fx_engine {
@@ -261,10 +275,19 @@
 }
 
 #pragma mark Animation
-- (void)fx_startAnimation:(FXAnimation *)animation {
+- (void)fx_playAnimation:(FXAnimation *)animation {
+    [self fx_playAnimation:animation asyncDecodeImage:NO];
+}
+
+- (void)fx_playAnimationAsyncDecodeImage:(FXAnimation *)animation {
+    [self fx_playAnimation:animation asyncDecodeImage:YES];
+}
+
+- (void)fx_playAnimation:(FXAnimation *)animation asyncDecodeImage:(BOOL)asyncDecodeImage {
     [self fx_stopAnimation];
     
-    self.fx_engine = [FXAnimationEngine engineWithAnimation:animation actor:self.layer];
+    self.fx_engine = [FXAnimationEngine engineWithAnimation:animation actor:self];
+    self.fx_engine.asyncDecodeImage = asyncDecodeImage;
     self.fx_engine.delegate = (id<FXAnimationEngineDelegate>)self;
     [self.fx_engine start];
 }

@@ -12,7 +12,6 @@
 
 @property (nonatomic, readonly) UIImage *listFirstFrame;
 @property (nonatomic, readonly) UIImage *listAnimatedImage;
-
 @property (nonatomic, readonly) NSArray<UIImage *> *animationFrames;
 
 + (instancetype)imageInfoWithGiftId:(NSString *)giftId;
