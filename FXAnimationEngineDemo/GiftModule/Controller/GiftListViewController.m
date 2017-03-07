@@ -43,12 +43,12 @@
 }
 
 - (CGFloat)toolViewHeight {
-    return 36;
+    return 48;
 }
 
 #pragma mark Computed Property
 - (CGFloat)viewHeight {
-    return self.bottomEffectViewMargin + self.toolViewHeight + [GiftListCell cellHeight];
+    return self.toolViewHeight + [GiftListCell cellHeight];
 }
 
 #pragma mark - LifeCycle
@@ -64,15 +64,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self popUpGiftListViewController];
+    [self presentGiftListViewController];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Setup ViewModel 
+#pragma mark - Setup ViewModel
 - (void)setupViewModel {
     self.viewModel = [[GiftListViewModel alloc] init];
     [self.viewModel asyncLoadGiftList];
@@ -85,20 +80,20 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, self.viewHeight);
 }
-
 - (void)setupBottomEffectView {
     const CGFloat cCornerRadius = 8;
     
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
     effectView.layer.cornerRadius = cCornerRadius;
     effectView.layer.masksToBounds = YES;
-    effectView.contentView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.6];
+    effectView.contentView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.4];
     
     [self.view addSubview:effectView];
     [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomEffectViewMargin);
         make.bottom.equalTo(self.bottomEffectViewMargin+self.viewHeight);
         make.right.equalTo(-self.bottomEffectViewMargin);
+        make.height.equalTo(effectView.superview);
     }];
     self.bottomEffectView = effectView;
     
@@ -123,10 +118,12 @@
 
 - (void)setupAnimTypeSwitchButton {
     const CGFloat cHorizMargin = 12;
-    const CGFloat cVertMargin = 2;
-    const CGFloat cWidth = 32;
+    const CGFloat cVertMargin = 8;
+    const CGFloat cWidth = 116;
     
     FXSwitch *animTypeSwitch = [[FXSwitch alloc] init];
+    animTypeSwitch.offTintColor = [UIColor darkGrayColor];
+    animTypeSwitch.thumbHorizRatio = 0.8;
     animTypeSwitch.onText = @"FXAnimation";
     animTypeSwitch.offText = @"CAAnimation";
     animTypeSwitch.on = YES;
@@ -143,8 +140,8 @@
 
 - (void)setupSendButton {
     const CGFloat cHorizMargin = 12;
-    const CGFloat cVertMargin = 2;
-    const CGFloat cWidth = 42;
+    const CGFloat cVertMargin = 8;
+    const CGFloat cWidth = 80;
     
     UIButton *sendBt = [UIButton buttonWithType:UIButtonTypeCustom];
     [sendBt setTitle:@"Send" forState:UIControlStateNormal];
@@ -168,11 +165,13 @@
     const CGFloat cViewHeight = [GiftListCell cellHeight];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.itemSize = CGSizeMake(cItemWidth, [GiftListCell cellHeight]);
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collectionView.backgroundColor = [UIColor clearColor];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GiftListCell class]) bundle:nil]
@@ -188,11 +187,13 @@
 }
 
 #pragma mark - Show/Hide
-- (void)popUpGiftListViewController {
-    [UIView animateWithDuration:0.25
-                          delay:0.0
-         usingSpringWithDamping:0.66
-          initialSpringVelocity:1.0
+- (void)presentGiftListViewController {
+    const NSTimeInterval cDuration = 0.4;
+    
+    [UIView animateWithDuration:cDuration
+                          delay:0.3
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:0.1
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          [self.bottomEffectView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -204,7 +205,9 @@
 }
 
 - (void)dismissGiftListViewController {
-    [UIView animateWithDuration:0.2
+    const NSTimeInterval cDuration = 0.2;
+    
+    [UIView animateWithDuration:cDuration
                      animations:^{
                          [self.bottomEffectView mas_updateConstraints:^(MASConstraintMaker *make) {
                              make.bottom.equalTo(self.bottomEffectViewMargin + self.viewHeight);
@@ -236,19 +239,15 @@
          }
          /*
           handle other results here
-          else if () {
-          
-          }
-          ...
           */
      }];
 }
 
 - (void)handleSelectedGiftItemChanged {
     @weakify(self);
-    NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
+    NSKeyValueObservingOptions kvoOptions = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial;
     RACSignal *selectedGiftItemSignal = [self.viewModel rac_valuesAndChangesForKeyPath:@keypath(self.viewModel, selectedGiftItem)
-                                                                               options:options
+                                                                               options:kvoOptions
                                                                               observer:self];
     
     // Select/Deselect Cell
@@ -256,25 +255,25 @@
         @strongify(self);
         RACTupleUnpack(GiftItem *curSelectedItem, NSDictionary *keyValueChangeDictionary) = x;
         GiftItem *lastSelectedItem = keyValueChangeDictionary[NSKeyValueChangeOldKey];
-        if (lastSelectedItem) {
+        if (lastSelectedItem && lastSelectedItem != (id)[NSNull null]) {
             GiftListCell *lastSelectedCell = (GiftListCell *)[self.giftCollectionView cellForItemAtIndexPath:[self.viewModel indexPathOfModel:lastSelectedItem]];
-            lastSelectedCell.selected = NO;
+            [lastSelectedCell updateAppearenceWithSelected:NO];
         }
         if (curSelectedItem) {
             GiftListCell *curSelectedCell = (GiftListCell *)[self.giftCollectionView cellForItemAtIndexPath:[self.viewModel indexPathOfModel:curSelectedItem]];
-            curSelectedCell.selected = YES;
+            [curSelectedCell updateAppearenceWithSelected:YES];
         }
     }];
     
     // SendButton Click Event
     self.sendButton.rac_command =
-    [[RACCommand alloc] initWithEnabled:[selectedGiftItemSignal filter:^BOOL(RACTuple *value) {
+    [[RACCommand alloc] initWithEnabled:[selectedGiftItemSignal map:^id(RACTuple *value) {
         GiftItem *selectedItem = value.first;
-        return selectedItem != (id)[NSNull null];
+        return @(selectedItem != nil);
     }] signalBlock:^RACSignal *(id input) {
         @strongify(self);
-        NSLog(@"input: %@", input);
-        [self userDidClickSendButtonWithGiftItem:self.viewModel.selectedGiftItem];
+        [self userDidClickSendButtonWithGiftItem:self.viewModel.selectedGiftItem
+                                 playFXAnimation:self.animTypeSwitch.isOn];
         return [RACSignal empty];
     }];
 }
@@ -307,6 +306,6 @@
 }
 
 #pragma mark - Delegate Methods
-- (void)userDidClickSendButtonWithGiftItem:(GiftItem *)item {}
+- (void)userDidClickSendButtonWithGiftItem:(GiftItem *)item playFXAnimation:(BOOL)playFXAnimation {}
 
 @end

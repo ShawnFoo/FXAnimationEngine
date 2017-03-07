@@ -317,7 +317,6 @@
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-
     UITouch *touch = [touches anyObject];
     CGFloat swipeOffsetX = [touch locationInView:self].x - self.touchedOriginX;
     BOOL turnOn = swipeOffsetX > 0;
@@ -332,7 +331,6 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-
     if (!self.valueChangedWhenMoved) {// 点击处理
         [self switchTo:!self.isOn animated:YES];
     }

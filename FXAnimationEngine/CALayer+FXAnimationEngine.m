@@ -93,6 +93,7 @@
                                    selector:@selector(updateKeyframe:)
                                     runloop:[NSRunLoop mainRunLoop]
                                        mode:NSRunLoopCommonModes];
+    [self notifyDelegateAnimationDidStart:self.animationGroup];
 }
 
 - (void)stop {
@@ -136,7 +137,7 @@
     
     if (self.playingAnimation != bPlayingAnimation) {
         [self notifyDelegateAnimationDidStop:self.playingAnimation finished:YES];
-        [self notifyDelegateAnimationWillStart:bPlayingAnimation];
+        [self notifyDelegateAnimationDidStart:bPlayingAnimation];
     }
     
     self.playingAnimation = bPlayingAnimation;
@@ -231,10 +232,10 @@
 }
 
 #pragma mark Notify Delegate
-- (void)notifyDelegateAnimationWillStart:(FXAnimation *)animation {
+- (void)notifyDelegateAnimationDidStart:(FXAnimation *)animation {
     id<FXAnimationDelegate> strongDelegate = animation.delegate;
-    if ([strongDelegate respondsToSelector:@selector(fxAnimationWillStart:)]) {
-        [strongDelegate fxAnimationWillStart:animation];
+    if ([strongDelegate respondsToSelector:@selector(fxAnimationDidStart:)]) {
+        [strongDelegate fxAnimationDidStart:animation];
     }
 }
 

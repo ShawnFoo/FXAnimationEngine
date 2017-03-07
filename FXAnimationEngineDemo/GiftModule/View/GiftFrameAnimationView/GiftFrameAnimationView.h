@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class GiftAnimationGroup;
+@class GiftItem;
 
 typedef NS_ENUM(char, GiftFrameAnimationViewPlayMode) {
     GiftFrameAnimationViewPlayFXAnimationMode,
@@ -16,8 +16,6 @@ typedef NS_ENUM(char, GiftFrameAnimationViewPlayMode) {
 
 @interface GiftFrameAnimationView : UIView
 
-@property (nonatomic, assign) GiftFrameAnimationViewPlayMode playMode;
-
-- (void)addAnimationGroup:(GiftAnimationGroup *)animationGroup;
+- (void)addGiftItem:(GiftItem *)item withPlayMode:(GiftFrameAnimationViewPlayMode)playMode;
 
 @end

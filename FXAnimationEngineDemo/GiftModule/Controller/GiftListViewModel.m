@@ -63,7 +63,7 @@
 - (void)setSelected:(BOOL)selected atIndexPath:(NSIndexPath *)indexPath {
     GiftItem *item = nil;
     if ((item = [self modelAtIndexPath:indexPath])) {
-        if (selected) {
+        if (selected && item != self.selectedGiftItem) {
             self.selectedGiftItem = item;
         }
         else if (item == self.selectedGiftItem) {

@@ -164,7 +164,7 @@ static NSString *const kVertionKey = @"version";
     NSMutableArray *images = [NSMutableArray array];
     NSUInteger index = 0;
     while (true) {
-        NSString *imagePath = [dirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(index)]];
+        NSString *imagePath = [dirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(index++)]];
         UIImage *image = [self imageWithPath:imagePath];
         if (!image) {
             break;

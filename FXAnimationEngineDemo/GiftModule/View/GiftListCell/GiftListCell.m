@@ -23,24 +23,23 @@
 
 #pragma mark - Accessor
 + (CGFloat)cellHeight {
-    return 64;
+    return 100;
 }
 
 + (NSString *)identifier {
     return @"GiftListCellIdentifier";
 }
 
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    self.selectedMaskImageView.hidden = !selected;
-    self.giftImageView.image = selected ? self.giftItem.imageInfo.listAnimatedImage : self.giftItem.imageInfo.listFirstFrame;
-}
-
 #pragma mark - Setup
 - (void)setupCellWithGiftItem:(GiftItem *)giftItem selected:(BOOL)selected {
     self.giftItem = giftItem;
-    self.selected = selected;
     self.giftNameLabel.text = giftItem.name;
+    [self updateAppearenceWithSelected:selected];
+}
+
+- (void)updateAppearenceWithSelected:(BOOL)selected {
+    self.selectedMaskImageView.hidden = !selected;
+    self.giftImageView.image = selected ? self.giftItem.imageInfo.listAnimatedImage : self.giftItem.imageInfo.listFirstFrame;
 }
 
 @end

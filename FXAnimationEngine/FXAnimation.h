@@ -13,10 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol FXAnimationDelegate <NSObject>
 
+@optional
 /**
- FXAnimation will start.
+ Tells the delegate the animation has started.
  */
-- (void)fxAnimationWillStart:(FXAnimation *)anim;
+- (void)fxAnimationDidStart:(FXAnimation *)anim;
 
 /**
  FXAnimation did stop.

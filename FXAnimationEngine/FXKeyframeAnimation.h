@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Duration of animation */
 @property (nonatomic, assign) NSTimeInterval duration;
 /** The repeat count of animation  */
-@property (nonatomic, assign) NSUInteger repeats;
+@property (nonatomic, assign) float repeats;
 
 @end
 

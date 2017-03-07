@@ -7,289 +7,286 @@
 //
 
 #import "RootViewController.h"
+#import "ReactiveCocoa.h"
+#import "Masonry.h"
 #import "CALayer+FXAnimationEngine.h"
+#import "GiftListViewController.h"
+#import "GiftFrameAnimationView.h"
+#import "GiftItem.h"
 
-@interface RootViewController () <FXAnimationDelegate>
+static NSString *const kAnimationIdentifier = @"kAnimationIdentifier";
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConst;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConst;
+@interface RootViewController () <UIGestureRecognizerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *animDirector;
+@property (nonatomic, readonly) CGFloat giftBtShowingBottom;
+@property (nonatomic, readonly) CGFloat giftBtHiddenBottom;
+
+@property (nonatomic, weak) IBOutlet GiftFrameAnimationView *frameAnimationView;
+
+@property (nonatomic, weak) UIButton *giftButton;
+@property (nonatomic, readonly) BOOL isGiftButtonShowing;
+@property (nonatomic, readonly) NSString *giftButtonAnimKeyPath;
+
+@property (nonatomic, strong) GiftListViewController *giftListVC;
+
+@property (nonatomic, weak) UIImageView *giftGuideMaskView;
 
 @end
 
 @implementation RootViewController
 
 #pragma mark - Accessor
-- (NSString *)resourceDirName {
-    return @"Animation";
+- (CGFloat)giftBtShowingBottom {
+    return 20;
+}
+
+- (CGFloat)giftBtHiddenBottom {
+    return -60;
+}
+
+- (NSString *)giftButtonAnimKeyPath {
+    return @"giftButtonAnimKeyPath";
+}
+
+- (BOOL)isGiftButtonShowing {
+    CGSize viewSize = self.view.frame.size;
+    CGRect btRect = self.giftButton.frame;
+    CGFloat bottomSpace = viewSize.height - (btRect.origin.y + btRect.size.height);
+    return bottomSpace == self.giftBtShowingBottom;
 }
 
 #pragma mark - LifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.widthCons.constant = [UIScreen mainScreen].bounds.size.width;
-//    self.heightCons.constant = [UIScreen mainScreen].bounds.size.width;
+    
+    [self setupBackground];
+    [self addTapGesture];
 }
 
-#pragma mark - Controls
-- (IBAction)start:(id)sender {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    [self stop:nil];
-//    [self animation];
-    [self animation2];
-//    [self animation3];
-//    [self animationYouting];
-//    [self animationFeizao];
-//    [self animationTianshi];
-//    [self animationMhcb];
+    [self setupGiftButton];
+    [self setupGiftGuideMaskView];
 }
 
-- (IBAction)stop:(id)sender {
-    [self.animDirector.layer fx_stopAnimation];
-    self.bottomConst.constant = 0;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self showGiftButton];
 }
 
-- (IBAction)release:(id)sender {
+#pragma mark - MemoryWarning
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
     
-    [self stop:nil];
-    self.animDirector = nil;
+    if (self.giftListVC.parentViewController != self) {
+        self.giftListVC = nil;
+    }
 }
 
-#pragma mark - Animation
-- (void)animation {
+#pragma mark - StatusBar
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+#pragma mark - Gesture
+- (void)addTapGesture {
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                    action:@selector(userDidTapViewInBlank:)];
+    tapRecognizer.delegate = self;
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+#pragma mark UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == self.view || touch.view == self.giftGuideMaskView;
+}
+
+#pragma mark - Setup Background
+- (void)setupBackground {
+    NSString *const cBgImageName = @"living_room_bg";
+    NSString *const cSubdirectory = @"background";
     
-    NSString *const kDirName = @"gifts/10086/anim";
-    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:kDirName];
-    
-    NSMutableArray<UIImage *> *imgs = [NSMutableArray arrayWithCapacity:106];
-    for (int i = 0; i <= 105; i++) {
-        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(i)]];
-        UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
-        [imgs addObject:image];
+    NSString *bgFilePath = [[NSBundle mainBundle] pathForResource:cBgImageName ofType:@"png" inDirectory:cSubdirectory];
+    UIImage *background = nil;
+    if ((background = [UIImage imageWithContentsOfFile:bgFilePath])) {
+        self.view.layer.contents = (__bridge id)background.CGImage;
     }
     
-    /**
-     {
-     identifier: "feiji",
-     asixY: 0.25,  // 离底部距离 占 屏幕高度 的百分比
-     animations: [
-        {
-            count: 29,
-            duration: 1.9
-        },
-        {
-            count: 14,
-            duration: 0.93,
-            repeats: 9
-        },
-        {
-            count: 59,
-            duration: 3.93
-        }
-     ]
-     }
-     **/
-    
-    FXKeyframeAnimation *animation = [FXKeyframeAnimation animationWithIdentifier:@"feiji1"];
-    animation.delegate = self;
-    animation.count = 56;
-    animation.duration = 3.8;
-    
-    FXKeyframeAnimation *animation2 = [FXKeyframeAnimation animationWithIdentifier:@"feiji2"];
-    animation2.count = 22;
-    animation2.duration = 1.5;
-    animation2.repeats = 6;
-    animation2.delegate = self;
-    
-    FXKeyframeAnimation *animation3 = [FXKeyframeAnimation animationWithIdentifier:@"feiji3"];
-    animation3.count = 27;
-    animation3.duration = 1.8;
-    animation3.delegate = self;
-    
-    FXAnimationGroup *aniamtionGroup = [FXAnimationGroup animationWithIdentifier:@"feiji"];
-    aniamtionGroup.frames = [imgs copy];
-    aniamtionGroup.animations = @[animation, animation2, animation3];
-    aniamtionGroup.delegate = self;
-    
-    CGFloat viewWidth = self.view.bounds.size.width;
-    CGFloat viewHeight = self.view.bounds.size.height;
-    CGSize imageSize = imgs.firstObject.size;
-    self.heightConst.constant = viewWidth * (imageSize.height / imageSize.width);
-    self.bottomConst.constant = viewHeight * 0.33;
-    
-    imgs = nil;
-    [self playAnimation:aniamtionGroup];
+    self.view.contentMode = UIViewContentModeScaleAspectFill;
 }
 
-- (void)animation2 {
-    
-    NSString *const kDirName = @"gifts/10087/anim";
-    NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:kDirName];
-    
-    NSMutableArray<UIImage *> *imgs = [NSMutableArray arrayWithCapacity:106];
-    for (int i = 0; i <= 128; i++) {
-        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @(i)]];
-        UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
-        [imgs addObject:image];
+#pragma mark - Guide MaskView
+- (void)setupGiftGuideMaskView {
+    if (!self.giftGuideMaskView) {
+        CGRect btFrame = self.giftButton.frame;// hidden giftBt frame
+        btFrame.origin.y -= fabs(self.giftBtHiddenBottom) + fabs(self.giftBtShowingBottom);
+        UIColor *maskBgColor = [UIColor colorWithWhite:0.2 alpha:0.75];
+        
+        UIImageView *guideMaskView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        guideMaskView.image = [self guideImageInViewWithMaskCenterRect:btFrame
+                                                               bgColor:maskBgColor];
+        [self.view insertSubview:guideMaskView belowSubview:self.giftButton];
+        self.giftGuideMaskView = guideMaskView;
     }
-    FXKeyframeAnimation *animation = [FXKeyframeAnimation animationWithIdentifier:@"castle"];
-    animation.frames = imgs;
-    animation.duration = 13;
-    animation.delegate = self;
+}
+
+- (void)removeGiftGuideMaskView {
+    [self.giftGuideMaskView removeFromSuperview];
+}
+
+- (UIImage *)guideImageInViewWithMaskCenterRect:(CGRect)centerRect bgColor:(UIColor *)bgColor {
+    UIGraphicsBeginImageContextWithOptions(self.view.frame.size, NO, 0.0);
+    [bgColor setFill];
+    UIRectFill(self.view.bounds);
+    UIBezierPath *centerPath = [UIBezierPath bezierPathWithRoundedRect:centerRect
+                                                          cornerRadius:centerRect.size.width / 2.0];
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeDestinationOut);
+    [centerPath fill];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGSize imageSize = imgs.firstObject.size;
-    self.heightConst.constant = width * (imageSize.height / imageSize.width);
+    return image;
+}
+
+#pragma mark - Gift Button
+- (void)setupGiftButton {
+    if (!self.giftButton) {
+        UIImage *giftBtImage = [UIImage imageNamed:@"gift_bt"];
+        
+        UIButton *giftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [giftButton setImage:giftBtImage forState:UIControlStateNormal];
+        [giftButton setImage:giftBtImage forState:UIControlStateHighlighted];
+        [giftButton addTarget:self
+                       action:@selector(userDidClickGiftButton:)
+             forControlEvents:UIControlEventTouchUpInside];
+        
+        CGSize viewSize = self.view.frame.size;
+        CGSize btSize = giftBtImage.size;
+        CGFloat btCenterX = viewSize.width / 2.0;
+        CGFloat btCenterY = viewSize.height - self.giftBtHiddenBottom - btSize.height/2.0;
+        giftButton.bounds = CGRectMake(0, 0, btSize.width, btSize.height);
+        giftButton.center = CGPointMake(btCenterX, btCenterY);
+        
+        [self.view addSubview:giftButton];
+        self.giftButton = giftButton;
+    }
+}
+
+#pragma mark  Animation
+- (void)showGiftButton {
+    const CGFloat cYMovement = fabs(self.giftBtShowingBottom) + fabs(self.giftBtHiddenBottom);
+    const NSTimeInterval cFirstGroupDuration = 0.45;
+    const NSTimeInterval cSecondGroupDuration = 0.15;
     
-    [self playAnimation:animation];
+    CGPoint fromPoint = self.giftButton.layer.position;
+    CGPoint toPoint = fromPoint;
+    toPoint.y -= cYMovement;
+    CABasicAnimation *moveUpAnim = [CABasicAnimation animationWithKeyPath:@"position"];
+    moveUpAnim.fromValue = [NSNumber valueWithCGPoint:fromPoint];
+    moveUpAnim.toValue = [NSNumber valueWithCGPoint:toPoint];
+    moveUpAnim.duration = cFirstGroupDuration;
+    
+    CABasicAnimation *enlargeAnim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    enlargeAnim.fromValue = [NSNumber valueWithCATransform3D:CATransform3DMakeScale(0.4, 0.4, 1)];
+    enlargeAnim.toValue = [NSNumber valueWithCATransform3D:CATransform3DIdentity];
+    enlargeAnim.duration = cFirstGroupDuration;
+    
+    CASpringAnimation *quakeAnim = [CASpringAnimation animationWithKeyPath:@"transform"];
+    quakeAnim.fromValue = [NSNumber valueWithCATransform3D:CATransform3DMakeScale(1.3, 1.3, 1)];
+    quakeAnim.toValue = [NSNumber valueWithCATransform3D:CATransform3DIdentity];
+    quakeAnim.duration = cSecondGroupDuration;
+    quakeAnim.beginTime = cFirstGroupDuration;
+    quakeAnim.damping = 1;
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = cFirstGroupDuration + cSecondGroupDuration;
+    group.animations = @[moveUpAnim, enlargeAnim, quakeAnim];
+    
+    [self.giftButton.layer addAnimation:group forKey:self.giftButtonAnimKeyPath];
+    self.giftButton.layer.position = toPoint;
 }
 
-//- (void)animation {
-//    
-//    NSString *const kDirName = @"youting";
-//    NSString *const kImgPrefix = @"youting_";
-//    NSString *bundlePath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"10025"] stringByAppendingPathComponent:kDirName];
-//    NSMutableArray *imgs = [NSMutableArray arrayWithCapacity:102];
-//    for (int i = 0; i <= 128; i++) {
-//        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", kImgPrefix, @(i)]];
-//        UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
-//        [imgs addObject:(__bridge UIImage*)image.CGImage];
-//    }
-//    
-//    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-//    anim.values = [imgs copy];
-//    anim.duration = 16.125;
-//    anim.removedOnCompletion = YES;
-//    imgs = nil;
-//    
-//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//    self.heightCons.constant = width * 370 / 360;
-//    [self.animDirector.layer addAnimation:anim forKey:nil];
-//}
-//
-//- (void)animation1 {
-//    
-//    NSString *const kDirName = @"youting";
-//    NSString *const kImgPrefix = @"youting_";
-//    NSString *bundlePath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"10025"] stringByAppendingPathComponent:kDirName];
-//    NSMutableArray *imgs = [NSMutableArray arrayWithCapacity:102];
-//    for (int i = 0; i <= 128; i++) {
-//        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", kImgPrefix, @(i)]];
-//        UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
-//        [imgs addObject:image];
-//    }
-//    self.imageView.animationImages = [imgs copy];
-//    self.imageView.animationDuration = 16.125;
-//    self.imageView.animationRepeatCount = 1;
-//    
-//    [self.imageView startAnimating];
-//}
-
-//- (void)animation {
-//    
-//    NSString *const kDirName = @"feiji";
-//    NSString *const kImgPrefix = @"feiji_";
-//    NSString *bundlePath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"10025"] stringByAppendingPathComponent:kDirName];
-//    NSMutableArray *imgs = [NSMutableArray arrayWithCapacity:102];
-//    for (int i = 0; i <= 101; i++) {
-//        NSString *imgPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", kImgPrefix, @(i)]];
-//        UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
-//        [imgs addObject:(__bridge UIImage*)image.CGImage];
-//    }
-//
-//    CAKeyframeAnimation *firstAnim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-//    NSArray *imgs1 = [imgs subarrayWithRange:NSMakeRange(0, 28+1)];
-//    firstAnim.values = imgs1;
-//    firstAnim.duration = 1.9;
-//    
-//    CAKeyframeAnimation *secondAnim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-//    NSArray *imgs2 = [imgs subarrayWithRange:NSMakeRange(29, 42+1-29)];
-//    secondAnim.values = imgs2;
-//    secondAnim.beginTime = 1.9;
-//    secondAnim.duration = 0.93;
-//    secondAnim.repeatCount = 9;
-//    
-//    CAKeyframeAnimation *thirdAnim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-//    NSArray *imgs3 = [imgs subarrayWithRange:NSMakeRange(43, 101+1-43)];
-//    thirdAnim.values = imgs3;
-//    thirdAnim.beginTime = 10.27;
-//    thirdAnim.duration = 3.93;
-//    
-//    CAAnimationGroup *group = [CAAnimationGroup animation];
-//    group.duration = 14.2;
-//    group.animations = @[firstAnim, secondAnim, thirdAnim];
-//    
-//    imgs = nil;
-//    [self.imageView.layer addAnimation:group forKey:nil];
-//}
-
-//- (void)animation2 {
-//    
-//    FXKeyframeAnimation *group1 = [[FXKeyframeAnimation alloc] init];
-//    group1.duration = 1.9;
-//    group1.count = 29;
-//    
-//    FXKeyframeAnimation *group2 = [[FXKeyframeAnimation alloc] init];
-//    group2.duration = 0.93;
-//    group2.count = 14;
-//    group2.repeats = 9;
-//    
-//    FXKeyframeAnimation *group3 = [[FXKeyframeAnimation alloc] init];
-//    group3.duration = 3.93;
-//    group3.count = 59;
-//    
-//    FXAnimationGroup *giftItem = [[FXAnimationGroup alloc] init];
-//    giftItem.path= @"10025/feiji";
-//    giftItem.animations = @[group1, group2, group3];
-//    
-//    [self playAnimation:giftItem];
-//}
-
-//- (void)animationTianshi {
-//
-//    FXKeyframeAnimation *group = [[FXKeyframeAnimation alloc] init];
-//    group.duration = 16.75;
-//    
-//    FXAnimationGroup *giftItem = [[FXAnimationGroup alloc] init];
-//    giftItem.path = @"10025/lsyj";
-//    giftItem.animations = @[group];
-//    
-//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//    self.heightCons.constant = width * 525 / 360;
-//    
-//    [self playAnimation:giftItem];
-//}
-
-//- (void)animationMhcb {
-//    
-//    FXKeyframeAnimation *group = [[FXKeyframeAnimation alloc] init];
-//    group.duration = 16.125;
-//    group.count = 129;
-//    
-//    FXAnimationGroup *giftItem = [[FXAnimationGroup alloc] init];
-//    giftItem.path = @"10025/mfcb";
-//    giftItem.animations = @[group];
-//    
-//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//    self.heightCons.constant = width * 580 / 360;
-//    
-//    [self playAnimation:giftItem];
-//}
-
-
-- (void)playAnimation:(__kindof FXAnimation *)animation {
-    [self.animDirector.layer fx_playAnimationAsyncDecodeImage:animation];
+- (void)hideGiftButton {
+    const CGFloat cYMovement = fabs(self.giftBtShowingBottom) + fabs(self.giftBtHiddenBottom);
+    const NSTimeInterval cSpinDuration = 0.1;
+    const NSTimeInterval cMoveDuration = 0.45;
+    const NSTimeInterval cGroupDuration = cSpinDuration + cMoveDuration;
+    
+    CABasicAnimation *spinAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    spinAnim.fromValue = @0.0;
+    spinAnim.toValue = @(360 / 180 * M_PI);
+    spinAnim.duration = cSpinDuration;
+    spinAnim.repeatCount = HUGE_VALF;
+    spinAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CGPoint fromPoint = self.giftButton.layer.position;
+    CGPoint toPoint = fromPoint;
+    toPoint.y += cYMovement;
+    CABasicAnimation *moveDownAnim = [CABasicAnimation animationWithKeyPath:@"position"];
+    moveDownAnim.fromValue = [NSNumber valueWithCGPoint:fromPoint];
+    moveDownAnim.toValue = [NSNumber valueWithCGPoint:toPoint];
+    moveDownAnim.duration = cMoveDuration;
+    moveDownAnim.beginTime = cSpinDuration;
+    
+    CABasicAnimation *shrinkAnim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    shrinkAnim.toValue = [NSNumber valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1)];
+    shrinkAnim.duration = cMoveDuration;
+    shrinkAnim.beginTime = cSpinDuration;
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = cGroupDuration;
+    group.animations = @[spinAnim, moveDownAnim, shrinkAnim];
+    
+    [self.giftButton.layer addAnimation:group forKey:self.giftButtonAnimKeyPath];
+    self.giftButton.layer.position = toPoint;
 }
 
-#pragma mark - FXAnimationDelegate
-- (void)fxAnimationWillStart:(FXAnimation *)anim {
-    NSLog(@"animation(%@)will start.", anim.identifier);
+#pragma mark - GiftListVC
+- (void)presentGiftListVC {
+    if (!self.giftListVC) {
+        self.giftListVC = [[GiftListViewController alloc] init];
+        [self registerGiftListVCEvents];
+    }
+    
+    [self addChildViewController:self.giftListVC];
+    [self.view insertSubview:self.giftListVC.view belowSubview:self.frameAnimationView];
+    [self.giftListVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.giftListVC.view.superview);
+        make.height.equalTo(self.giftListVC.preferredContentSize.height);
+    }];
+    [self.giftListVC didMoveToParentViewController:self];
 }
 
-- (void)fxAnimationDidStop:(FXAnimation *)anim finished:(BOOL)finished {
-    NSLog(@"animation(%@) did stop, finished: %@", anim.identifier, finished ? @"YES" : @"NO");
+#pragma mark Events
+- (void)registerGiftListVCEvents {
+    @weakify(self);
+    [[self.giftListVC rac_signalForSelector:@selector(userDidClickSendButtonWithGiftItem:playFXAnimation:)]
+     subscribeNext:^(RACTuple *x) {
+         @strongify(self);
+         RACTupleUnpack(GiftItem *giftItem, NSNumber *playFXAnimation) = x;
+         GiftFrameAnimationViewPlayMode playMode = playFXAnimation.boolValue ? GiftFrameAnimationViewPlayFXAnimationMode : GiftFrameAnimationViewPlayCAAnimationMode;
+         [self.frameAnimationView addGiftItem:giftItem withPlayMode:playMode];
+     }];
+}
+
+#pragma mark Click
+- (void)userDidTapViewInBlank:(UITapGestureRecognizer *)recognizer {
+    [self removeGiftGuideMaskView];
+    
+    if (self.giftListVC.parentViewController == self) {
+        [self.giftListVC dismissGiftListViewController];
+    }
+    if (!self.isGiftButtonShowing) {
+        [self showGiftButton];
+    }
+}
+
+- (IBAction)userDidClickGiftButton:(id)sender {
+    [self removeGiftGuideMaskView];
+    [self hideGiftButton];
+    [self presentGiftListVC];
 }
 
 @end

@@ -10,16 +10,18 @@
 		290D84ED1E6C706700F992DC /* GiftListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84EB1E6C706700F992DC /* GiftListCell.m */; };
 		290D84EE1E6C706700F992DC /* GiftListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290D84EC1E6C706700F992DC /* GiftListCell.xib */; };
 		290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */; };
+		29122CDA1E6F176C00E9336C /* gifts in Resources */ = {isa = PBXBuildFile; fileRef = 29122CD91E6F176C00E9336C /* gifts */; };
+		29122CDB1E6F176C00E9336C /* gifts in Resources */ = {isa = PBXBuildFile; fileRef = 29122CD91E6F176C00E9336C /* gifts */; };
 		29448BC51E6C68A000987C6C /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29448BC41E6C68A000987C6C /* RootViewController.xib */; };
 		29448BD11E6C69B000987C6C /* UIColor+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCA1E6C69B000987C6C /* UIColor+Convert.m */; };
 		29448BD21E6C69B000987C6C /* NSObject+FXJSONConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */; };
 		29448BD31E6C69B000987C6C /* FXPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BD01E6C69B000987C6C /* FXPage.m */; };
+		2961E8301E6DAA60000691BE /* FXDeallocMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */; };
 		2972DAF31E670F7900906D92 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033E21D489013008D5C4F /* RootViewController.m */; };
 		2972DAF71E670F7900906D92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DF1D489013008D5C4F /* AppDelegate.m */; };
 		2972DAFA1E670F7900906D92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DC1D489013008D5C4F /* main.m */; };
 		2972DB001E670F7900906D92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651033E91D489013008D5C4F /* LaunchScreen.storyboard */; };
 		2972DB021E670F7900906D92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651033E71D489013008D5C4F /* Assets.xcassets */; };
-		297C6E901E68733D006F2A0B /* gifts in Resources */ = {isa = PBXBuildFile; fileRef = 297C6E8F1E68733D006F2A0B /* gifts */; };
 		298E73EF1E6A6880009B3D25 /* FXSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 298E73EE1E6A6880009B3D25 /* FXSwitch.m */; };
 		29B1B6421E67211100F88B25 /* FXAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6351E67211100F88B25 /* FXAnimation.m */; };
 		29B1B6431E67211100F88B25 /* FXAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6371E67211100F88B25 /* FXAnimationGroup.m */; };
@@ -35,6 +37,37 @@
 		654F7EDD1E6806D000700DFA /* GiftAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED01E6806D000700DFA /* GiftAnimationGroup.m */; };
 		654F7EDE1E6806D000700DFA /* GiftItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED21E6806D000700DFA /* GiftItem.m */; };
 		654F7EDF1E6806D000700DFA /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED51E6806D000700DFA /* GiftManager.m */; };
+		6550A2291E6E64B400525749 /* background in Resources */ = {isa = PBXBuildFile; fileRef = 6550A2281E6E64B400525749 /* background */; };
+		6550A22D1E6E968400525749 /* FXPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BD01E6C69B000987C6C /* FXPage.m */; };
+		6550A22E1E6E968400525749 /* GiftAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ECE1E6806D000700DFA /* GiftAnimation.m */; };
+		6550A22F1E6E968400525749 /* UIImage+FXDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63F1E67211100F88B25 /* UIImage+FXDecoder.m */; };
+		6550A2301E6E968400525749 /* GiftListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84EB1E6C706700F992DC /* GiftListCell.m */; };
+		6550A2311E6E968400525749 /* GiftAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED01E6806D000700DFA /* GiftAnimationGroup.m */; };
+		6550A2321E6E968400525749 /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED51E6806D000700DFA /* GiftManager.m */; };
+		6550A2331E6E968400525749 /* FXSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 298E73EE1E6A6880009B3D25 /* FXSwitch.m */; };
+		6550A2341E6E968400525749 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033E21D489013008D5C4F /* RootViewController.m */; };
+		6550A2351E6E968400525749 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DF1D489013008D5C4F /* AppDelegate.m */; };
+		6550A2361E6E968400525749 /* GiftImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB7ED01E681E580092CFBE /* GiftImageInfo.m */; };
+		6550A2371E6E968400525749 /* FXAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6371E67211100F88B25 /* FXAnimationGroup.m */; };
+		6550A2381E6E968400525749 /* GiftItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ED21E6806D000700DFA /* GiftItem.m */; };
+		6550A2391E6E968400525749 /* GiftResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F178F61E6AFD6C00C46FE5 /* GiftResourceLoader.m */; };
+		6550A23A1E6E968400525749 /* FXKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63A1E67211100F88B25 /* FXKeyframeAnimation.m */; };
+		6550A23B1E6E968400525749 /* UIColor+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCA1E6C69B000987C6C /* UIColor+Convert.m */; };
+		6550A23C1E6E968400525749 /* NSTimer+FXWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63D1E67211100F88B25 /* NSTimer+FXWeakTimer.m */; };
+		6550A23D1E6E968400525749 /* NSObject+FXJSONConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */; };
+		6550A23E1E6E968400525749 /* FXAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6351E67211100F88B25 /* FXAnimation.m */; };
+		6550A23F1E6E968400525749 /* CALayer+FXAnimationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */; };
+		6550A2401E6E968400525749 /* GiftListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7ECB1E6806D000700DFA /* GiftListViewModel.m */; };
+		6550A2411E6E968400525749 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DC1D489013008D5C4F /* main.m */; };
+		6550A2421E6E968400525749 /* GiftFrameAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */; };
+		6550A2431E6E968400525749 /* GiftListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7EC91E6806D000700DFA /* GiftListViewController.m */; };
+		6550A2441E6E968400525749 /* FXDeallocMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */; };
+		6550A2461E6E968400525749 /* libPods-FXAnimationEngineDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9E5F295DFECD0CD5F0DDF5 /* libPods-FXAnimationEngineDemo.a */; };
+		6550A2481E6E968400525749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651033E91D489013008D5C4F /* LaunchScreen.storyboard */; };
+		6550A2491E6E968400525749 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29448BC41E6C68A000987C6C /* RootViewController.xib */; };
+		6550A24A1E6E968400525749 /* background in Resources */ = {isa = PBXBuildFile; fileRef = 6550A2281E6E64B400525749 /* background */; };
+		6550A24B1E6E968400525749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651033E71D489013008D5C4F /* Assets.xcassets */; };
+		6550A24C1E6E968400525749 /* GiftListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290D84EC1E6C706700F992DC /* GiftListCell.xib */; };
 		65DB7ED11E681E580092CFBE /* GiftImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB7ED01E681E580092CFBE /* GiftImageInfo.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +79,7 @@
 		290D84EC1E6C706700F992DC /* GiftListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftListCell.xib; sourceTree = "<group>"; };
 		290D84EF1E6C708B00F992DC /* GiftFrameAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftFrameAnimationView.h; sourceTree = "<group>"; };
 		290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftFrameAnimationView.m; sourceTree = "<group>"; };
+		29122CD91E6F176C00E9336C /* gifts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gifts; sourceTree = "<group>"; };
 		29448BC41E6C68A000987C6C /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29448BC91E6C69B000987C6C /* UIColor+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Convert.h"; sourceTree = "<group>"; };
 		29448BCA1E6C69B000987C6C /* UIColor+Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Convert.m"; sourceTree = "<group>"; };
@@ -53,8 +87,9 @@
 		29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXJSONConvert.m"; sourceTree = "<group>"; };
 		29448BCF1E6C69B000987C6C /* FXPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPage.h; sourceTree = "<group>"; };
 		29448BD01E6C69B000987C6C /* FXPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXPage.m; sourceTree = "<group>"; };
+		2961E82E1E6DAA60000691BE /* FXDeallocMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDeallocMonitor.h; sourceTree = "<group>"; };
+		2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDeallocMonitor.m; sourceTree = "<group>"; };
 		2972DB091E670F7900906D92 /* FXAnimationEngineDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXAnimationEngineDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		297C6E8F1E68733D006F2A0B /* gifts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gifts; sourceTree = "<group>"; };
 		298E73ED1E6A6880009B3D25 /* FXSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSwitch.h; sourceTree = "<group>"; };
 		298E73EE1E6A6880009B3D25 /* FXSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSwitch.m; sourceTree = "<group>"; };
 		298E74041E6AE241009B3D25 /* FXDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataSource.h; sourceTree = "<group>"; };
@@ -95,6 +130,8 @@
 		654F7ED21E6806D000700DFA /* GiftItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftItem.m; sourceTree = "<group>"; };
 		654F7ED41E6806D000700DFA /* GiftManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
 		654F7ED51E6806D000700DFA /* GiftManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
+		6550A2281E6E64B400525749 /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; path = background; sourceTree = "<group>"; };
+		6550A2531E6E968400525749 /* FXAnimationEngineDemo_Reveal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXAnimationEngineDemo_Reveal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DB7ECF1E681E580092CFBE /* GiftImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftImageInfo.h; sourceTree = "<group>"; };
 		65DB7ED01E681E580092CFBE /* GiftImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftImageInfo.m; sourceTree = "<group>"; };
 		830D8AF8DD0E626F4CCD8A83 /* libPods-FXKeyframeAnimationDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FXKeyframeAnimationDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +146,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				54ED31024B54DBBF7F08A81C /* libPods-FXAnimationEngineDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6550A2451E6E968400525749 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6550A2461E6E968400525749 /* libPods-FXAnimationEngineDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +192,8 @@
 		29448BC71E6C69AF00987C6C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2961E82E1E6DAA60000691BE /* FXDeallocMonitor.h */,
+				2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */,
 				29448BC81E6C69B000987C6C /* Color */,
 				29448BCB1E6C69B000987C6C /* JSONConvert */,
 				29448BCE1E6C69B000987C6C /* Model */,
@@ -269,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				2972DB091E670F7900906D92 /* FXAnimationEngineDemo.app */,
+				6550A2531E6E968400525749 /* FXAnimationEngineDemo_Reveal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,7 +350,8 @@
 		6535FFE71E66B73F00558A86 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				297C6E8F1E68733D006F2A0B /* gifts */,
+				29122CD91E6F176C00E9336C /* gifts */,
+				6550A2281E6E64B400525749 /* background */,
 				651033E71D489013008D5C4F /* Assets.xcassets */,
 			);
 			name = Resource;
@@ -399,6 +448,26 @@
 			productReference = 2972DB091E670F7900906D92 /* FXAnimationEngineDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6550A22A1E6E968400525749 /* FXAnimationEngineDemo_Reveal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6550A2501E6E968400525749 /* Build configuration list for PBXNativeTarget "FXAnimationEngineDemo_Reveal" */;
+			buildPhases = (
+				6550A22B1E6E968400525749 /* [CP] Check Pods Manifest.lock */,
+				6550A22C1E6E968400525749 /* Sources */,
+				6550A2451E6E968400525749 /* Frameworks */,
+				6550A2471E6E968400525749 /* Resources */,
+				6550A24E1E6E968400525749 /* [CP] Embed Pods Frameworks */,
+				6550A24F1E6E968400525749 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXAnimationEngineDemo_Reveal;
+			productName = AnimationTest;
+			productReference = 6550A2531E6E968400525749 /* FXAnimationEngineDemo_Reveal.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -410,6 +479,10 @@
 				TargetAttributes = {
 					2972DAF01E670F7900906D92 = {
 						DevelopmentTeam = WGV2V2YLC8;
+					};
+					6550A22A1E6E968400525749 = {
+						DevelopmentTeam = WGV2V2YLC8;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -427,6 +500,7 @@
 			projectRoot = "";
 			targets = (
 				2972DAF01E670F7900906D92 /* FXAnimationEngineDemo */,
+				6550A22A1E6E968400525749 /* FXAnimationEngineDemo_Reveal */,
 			);
 		};
 /* End PBXProject section */
@@ -436,11 +510,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29122CDA1E6F176C00E9336C /* gifts in Resources */,
 				2972DB001E670F7900906D92 /* LaunchScreen.storyboard in Resources */,
 				29448BC51E6C68A000987C6C /* RootViewController.xib in Resources */,
+				6550A2291E6E64B400525749 /* background in Resources */,
 				2972DB021E670F7900906D92 /* Assets.xcassets in Resources */,
 				290D84EE1E6C706700F992DC /* GiftListCell.xib in Resources */,
-				297C6E901E68733D006F2A0B /* gifts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6550A2471E6E968400525749 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29122CDB1E6F176C00E9336C /* gifts in Resources */,
+				6550A2481E6E968400525749 /* LaunchScreen.storyboard in Resources */,
+				6550A2491E6E968400525749 /* RootViewController.xib in Resources */,
+				6550A24A1E6E968400525749 /* background in Resources */,
+				6550A24B1E6E968400525749 /* Assets.xcassets in Resources */,
+				6550A24C1E6E968400525749 /* GiftListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +580,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6550A22B1E6E968400525749 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6550A24E1E6E968400525749 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6550A24F1E6E968400525749 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -522,6 +655,38 @@
 				2972DAFA1E670F7900906D92 /* main.m in Sources */,
 				290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */,
 				654F7EDA1E6806D000700DFA /* GiftListViewController.m in Sources */,
+				2961E8301E6DAA60000691BE /* FXDeallocMonitor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6550A22C1E6E968400525749 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6550A22D1E6E968400525749 /* FXPage.m in Sources */,
+				6550A22E1E6E968400525749 /* GiftAnimation.m in Sources */,
+				6550A22F1E6E968400525749 /* UIImage+FXDecoder.m in Sources */,
+				6550A2301E6E968400525749 /* GiftListCell.m in Sources */,
+				6550A2311E6E968400525749 /* GiftAnimationGroup.m in Sources */,
+				6550A2321E6E968400525749 /* GiftManager.m in Sources */,
+				6550A2331E6E968400525749 /* FXSwitch.m in Sources */,
+				6550A2341E6E968400525749 /* RootViewController.m in Sources */,
+				6550A2351E6E968400525749 /* AppDelegate.m in Sources */,
+				6550A2361E6E968400525749 /* GiftImageInfo.m in Sources */,
+				6550A2371E6E968400525749 /* FXAnimationGroup.m in Sources */,
+				6550A2381E6E968400525749 /* GiftItem.m in Sources */,
+				6550A2391E6E968400525749 /* GiftResourceLoader.m in Sources */,
+				6550A23A1E6E968400525749 /* FXKeyframeAnimation.m in Sources */,
+				6550A23B1E6E968400525749 /* UIColor+Convert.m in Sources */,
+				6550A23C1E6E968400525749 /* NSTimer+FXWeakTimer.m in Sources */,
+				6550A23D1E6E968400525749 /* NSObject+FXJSONConvert.m in Sources */,
+				6550A23E1E6E968400525749 /* FXAnimation.m in Sources */,
+				6550A23F1E6E968400525749 /* CALayer+FXAnimationEngine.m in Sources */,
+				6550A2401E6E968400525749 /* GiftListViewModel.m in Sources */,
+				6550A2411E6E968400525749 /* main.m in Sources */,
+				6550A2421E6E968400525749 /* GiftFrameAnimationView.m in Sources */,
+				6550A2431E6E968400525749 /* GiftListViewController.m in Sources */,
+				6550A2441E6E968400525749 /* FXDeallocMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +828,60 @@
 			};
 			name = Release;
 		};
+		6550A2511E6E968400525749 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8972B42250B821B61529F0C5 /* Pods-FXAnimationEngineDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WGV2V2YLC8;
+				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					MAS_SHORTHAND_GLOBALS,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/FXAnimationEngineDemo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShawnFoo.FXAnimationEngineDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6550A2521E6E968400525749 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A688BD3AF24B6126B29ED13 /* Pods-FXAnimationEngineDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WGV2V2YLC8;
+				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					MAS_SHORTHAND_GLOBALS,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/FXAnimationEngineDemo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShawnFoo.FXAnimationEngineDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -680,6 +899,15 @@
 			buildConfigurations = (
 				651033ED1D489013008D5C4F /* Debug */,
 				651033EE1D489013008D5C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6550A2501E6E968400525749 /* Build configuration list for PBXNativeTarget "FXAnimationEngineDemo_Reveal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6550A2511E6E968400525749 /* Debug */,
+				6550A2521E6E968400525749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

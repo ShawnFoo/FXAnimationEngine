@@ -3,36 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>giftId</key>
-	<string>10086</string>
+	<string>10088</string>
 	<key>width</key>
 	<integer>360</integer>
 	<key>height</key>
-	<integer>324</integer>
+	<integer>520</integer>
 	<key>bottomY</key>
-	<real>0.25</real>
+	<real>0</real>
 	<key>animations</key>
 	<array>
 		<dict>
 			<key>count</key>
-			<integer>56</integer>
+			<integer>134</integer>
 			<key>duration</key>
-			<real>3.8</real>
-			<key>repeats</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>count</key>
-			<integer>22</integer>
-			<key>duration</key>
-			<real>1.5</real>
-			<key>repeats</key>
-			<integer>6</integer>
-		</dict>
-		<dict>
-			<key>count</key>
-			<integer>27</integer>
-			<key>duration</key>
-			<real>1.8</real>
+			<real>16.75</real>
 			<key>repeats</key>
 			<integer>1</integer>
 		</dict>

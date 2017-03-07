@@ -1,5 +1,5 @@
 //
-//  JCPage.h
+//  FXPage.h
 //  FXKit
 //
 //  Created by ShawnFoo on 3/29/16.

@@ -12,6 +12,6 @@
 
 @property (nonatomic, assign) NSUInteger count;
 @property (nonatomic, assign) NSTimeInterval duration;
-@property (nonatomic, assign) NSUInteger repeats;
+@property (nonatomic, assign) float repeats;
 
 @end

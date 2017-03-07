@@ -14,10 +14,31 @@
 
 @property (nonatomic, readonly) BOOL fx_isAnimating;
 
-- (void)fx_playAnimation:(FXAnimation *)animation;
+/**
+ Play FXAnimation and decode all image frames asynchronously.
+
+ @param animation FXAnimationGroup or FXKeyframeAnimation objcet
+ */
 - (void)fx_playAnimationAsyncDecodeImage:(FXAnimation *)animation;
+
+/**
+ Play FXAnimation, but all image frames will all decode in main-thread, same as the thread in which CAAnimation decode image.
+
+ @param animation FXAnimationGroup or FXKeyframeAnimation objcet
+ */
+- (void)fx_playAnimation:(FXAnimation *)animation;
+
+/**
+ Play FXAnimation
+
+ @param animation FXAnimationGroup or FXKeyframeAnimation objcet
+ @param asyncDecodeImage Decode image in asynchronous thread or main thread.
+ */
 - (void)fx_playAnimation:(FXAnimation *)animation asyncDecodeImage:(BOOL)asyncDecodeImage;
 
+/**
+ Stop FXAnimation that is playing in this layer.
+ */
 - (void)fx_stopAnimation;
 
 @end

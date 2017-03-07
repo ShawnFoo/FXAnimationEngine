@@ -12,8 +12,7 @@
 @interface GiftListViewController : UIViewController
 
 - (void)dismissGiftListViewController;
-
 #pragma mark - For Delegate
-- (void)userDidClickSendButtonWithGiftItem:(GiftItem *)item;
+- (void)userDidClickSendButtonWithGiftItem:(GiftItem *)item playFXAnimation:(BOOL)playFXAnimation;
 
 @end

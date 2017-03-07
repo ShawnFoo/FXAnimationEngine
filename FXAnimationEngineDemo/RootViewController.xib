@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController">
             <connections>
+                <outlet property="frameAnimationView" destination="fV2-9l-2hA" id="PR9-R5-cDE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="EL3-aN-4kC"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fV2-9l-2hA" customClass="GiftFrameAnimationView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="-105" y="47"/>
+            <constraints>
+                <constraint firstItem="fV2-9l-2hA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gxr-jP-Y0l"/>
+                <constraint firstItem="fV2-9l-2hA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OJM-kL-5eU"/>
+                <constraint firstAttribute="trailing" secondItem="fV2-9l-2hA" secondAttribute="trailing" id="SpV-uA-AWB"/>
+                <constraint firstAttribute="bottom" secondItem="fV2-9l-2hA" secondAttribute="bottom" id="kIK-CI-31h"/>
+            </constraints>
+            <point key="canvasLocation" x="-18" y="46"/>
         </view>
     </objects>
 </document>

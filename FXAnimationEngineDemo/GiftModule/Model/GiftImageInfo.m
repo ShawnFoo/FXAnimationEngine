@@ -27,7 +27,7 @@
 
 #pragma mark - Accessor
 - (NSTimeInterval)listFrameInterval {
-    return 0.1;
+    return 0.08;
 }
 
 - (UIImage *)listFirstFrame {

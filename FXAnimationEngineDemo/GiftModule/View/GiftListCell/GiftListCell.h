@@ -15,5 +15,6 @@
 + (NSString *)identifier;
 
 - (void)setupCellWithGiftItem:(GiftItem *)giftItem selected:(BOOL)selected;
+- (void)updateAppearenceWithSelected:(BOOL)selected;
 
 @end

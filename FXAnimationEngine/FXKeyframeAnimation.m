@@ -28,7 +28,7 @@
     return self.repeats * self.duration;
 }
 
-- (NSUInteger)repeats {
+- (float)repeats {
     return _repeats > 0 ? _repeats : 1;
 }
 
@@ -39,14 +39,14 @@
 
 - (void)setCount:(NSUInteger)count {
     _count = count;
-    if (!_duration) {
-        self.duration = count * _p_interval;
-    }
+    self.duration = count * _p_interval;
 }
 
 - (void)setDuration:(NSTimeInterval)duration {
     _duration = duration;
-    _p_interval = _duration / _count;
+    if (_count > 0) {
+        _p_interval = _duration / _count;
+    }
 }
 
 #pragma mark - Initilizer
