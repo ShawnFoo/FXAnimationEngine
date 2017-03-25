@@ -16,7 +16,6 @@
 		29448BD11E6C69B000987C6C /* UIColor+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCA1E6C69B000987C6C /* UIColor+Convert.m */; };
 		29448BD21E6C69B000987C6C /* NSObject+FXJSONConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */; };
 		29448BD31E6C69B000987C6C /* FXPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BD01E6C69B000987C6C /* FXPage.m */; };
-		2961E8301E6DAA60000691BE /* FXDeallocMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */; };
 		2972DAF31E670F7900906D92 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033E21D489013008D5C4F /* RootViewController.m */; };
 		2972DAF71E670F7900906D92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DF1D489013008D5C4F /* AppDelegate.m */; };
 		2972DAFA1E670F7900906D92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DC1D489013008D5C4F /* main.m */; };
@@ -61,7 +60,6 @@
 		6550A2411E6E968400525749 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 651033DC1D489013008D5C4F /* main.m */; };
 		6550A2421E6E968400525749 /* GiftFrameAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */; };
 		6550A2431E6E968400525749 /* GiftListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7EC91E6806D000700DFA /* GiftListViewController.m */; };
-		6550A2441E6E968400525749 /* FXDeallocMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */; };
 		6550A2461E6E968400525749 /* libPods-FXAnimationEngineDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9E5F295DFECD0CD5F0DDF5 /* libPods-FXAnimationEngineDemo.a */; };
 		6550A2481E6E968400525749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651033E91D489013008D5C4F /* LaunchScreen.storyboard */; };
 		6550A2491E6E968400525749 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29448BC41E6C68A000987C6C /* RootViewController.xib */; };
@@ -87,8 +85,6 @@
 		29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXJSONConvert.m"; sourceTree = "<group>"; };
 		29448BCF1E6C69B000987C6C /* FXPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXPage.h; sourceTree = "<group>"; };
 		29448BD01E6C69B000987C6C /* FXPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXPage.m; sourceTree = "<group>"; };
-		2961E82E1E6DAA60000691BE /* FXDeallocMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDeallocMonitor.h; sourceTree = "<group>"; };
-		2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDeallocMonitor.m; sourceTree = "<group>"; };
 		2972DB091E670F7900906D92 /* FXAnimationEngineDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXAnimationEngineDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298E73ED1E6A6880009B3D25 /* FXSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSwitch.h; sourceTree = "<group>"; };
 		298E73EE1E6A6880009B3D25 /* FXSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSwitch.m; sourceTree = "<group>"; };
@@ -192,8 +188,6 @@
 		29448BC71E6C69AF00987C6C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				2961E82E1E6DAA60000691BE /* FXDeallocMonitor.h */,
-				2961E82F1E6DAA60000691BE /* FXDeallocMonitor.m */,
 				29448BC81E6C69B000987C6C /* Color */,
 				29448BCB1E6C69B000987C6C /* JSONConvert */,
 				29448BCE1E6C69B000987C6C /* Model */,
@@ -655,7 +649,6 @@
 				2972DAFA1E670F7900906D92 /* main.m in Sources */,
 				290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */,
 				654F7EDA1E6806D000700DFA /* GiftListViewController.m in Sources */,
-				2961E8301E6DAA60000691BE /* FXDeallocMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,7 +679,6 @@
 				6550A2411E6E968400525749 /* main.m in Sources */,
 				6550A2421E6E968400525749 /* GiftFrameAnimationView.m in Sources */,
 				6550A2431E6E968400525749 /* GiftListViewController.m in Sources */,
-				6550A2441E6E968400525749 /* FXDeallocMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
