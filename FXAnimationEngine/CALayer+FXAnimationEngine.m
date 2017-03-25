@@ -160,8 +160,7 @@
                     });
                 }
                 else {
-                    CGImageRef copyImageRef = [frame fx_decodedCGImageRefCopy];
-                    strongActor.contents = (__bridge id)copyImageRef;
+                    strongActor.contents = (__bridge id)frame.CGImage;
                 }
 
                 if (bIsLastRepeat) {

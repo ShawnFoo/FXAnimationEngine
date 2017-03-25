@@ -12,6 +12,9 @@
 
 @interface CALayer (FXAnimationEngine)
 
+/**
+ Is playing FXAnimation in this layer.
+ */
 @property (nonatomic, readonly) BOOL fx_isAnimating;
 
 /**

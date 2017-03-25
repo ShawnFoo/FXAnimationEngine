@@ -39,11 +39,15 @@
 
 - (void)setCount:(NSUInteger)count {
     _count = count;
-    self.duration = count * _p_interval;
+    [self updateInterval];
 }
 
 - (void)setDuration:(NSTimeInterval)duration {
     _duration = duration;
+    [self updateInterval];
+}
+
+- (void)updateInterval {
     if (_count > 0) {
         _p_interval = _duration / _count;
     }

@@ -112,7 +112,7 @@ FXAnimationDelegate
     
     CGSize viewSize = self.frame.size;
     CGRect toFrame = self.animtionLayer.frame;
-    
+    toFrame.size = viewSize;
     toFrame.size.height = (group.height / group.width) * viewSize.width;
     toFrame.origin.y = viewSize.height - group.bottomY * viewSize.height - toFrame.size.height;
     
@@ -142,6 +142,7 @@ FXAnimationDelegate
     NSString *identifier = giftItem.name;
     @weakify(self);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // put io ops、 convert group ops in global queue
         GiftAnimationGroup *group = [GiftResourceLoader loadAnimationGroupWithGiftId:giftItem.giftId];
         NSArray<UIImage *> *frames = giftItem.imageInfo.animationFrames;
         id fxOrCAAnimationGroup = nil;
@@ -171,7 +172,7 @@ FXAnimationDelegate
 }
 
 - (void)playFXAnimationGroup:(FXAnimationGroup *)group {
-    
+
     [self.animtionLayer fx_playAnimationAsyncDecodeImage:group];
     // equal to method above
 //    [self.animtionLayer fx_playAnimation:group asyncDecodeImage:YES];
@@ -201,9 +202,9 @@ FXAnimationDelegate
     NSMutableArray *animations = [NSMutableArray arrayWithCapacity:group.animations.count];
     for (GiftAnimation *animation in group.animations) {
         FXKeyframeAnimation *fxAnim = [FXKeyframeAnimation animation];
-        fxAnim.repeats = animation.repeats;
-        fxAnim.duration = animation.duration;
         fxAnim.count = animation.count;
+        fxAnim.duration = animation.duration;
+        fxAnim.repeats = animation.repeats;
         [animations addObject:fxAnim];
     }
     
@@ -229,12 +230,11 @@ FXAnimationDelegate
     NSTimeInterval duration = 0;
     
     for (GiftAnimation *animation in group.animations) {
-        NSUInteger repeats = animation.repeats ?: 1;
         NSRange range = NSMakeRange(frameIndex, animation.count);
-        if (range.location+range.length >= cgImages.count) {
+        if (range.location+range.length > cgImages.count) {
             break;
         }
-        
+        NSUInteger repeats = animation.repeats ?: 1;
         CAKeyframeAnimation *caAnim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
         caAnim.values = [cgImages subarrayWithRange:range];
         caAnim.duration = animation.duration;

@@ -169,7 +169,7 @@ static NSString *const kAnimationIdentifier = @"kAnimationIdentifier";
         giftButton.bounds = CGRectMake(0, 0, btSize.width, btSize.height);
         giftButton.center = CGPointMake(btCenterX, btCenterY);
         
-        [self.view addSubview:giftButton];
+        [self.view insertSubview:giftButton belowSubview:self.frameAnimationView];
         self.giftButton = giftButton;
     }
 }

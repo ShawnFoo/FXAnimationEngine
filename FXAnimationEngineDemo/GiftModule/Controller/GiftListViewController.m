@@ -141,7 +141,7 @@
 - (void)setupSendButton {
     const CGFloat cHorizMargin = 12;
     const CGFloat cVertMargin = 8;
-    const CGFloat cWidth = 80;
+    const CGFloat cWidth = 100;
     
     UIButton *sendBt = [UIButton buttonWithType:UIButtonTypeCustom];
     [sendBt setTitle:@"Send" forState:UIControlStateNormal];

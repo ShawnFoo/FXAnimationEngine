@@ -850,7 +850,7 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShawnFoo.FXAnimationEngineDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShawnFoo.FXAnimationEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -877,7 +877,7 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShawnFoo.FXAnimationEngineDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShawnFoo.FXAnimationEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -16,7 +16,7 @@
 			<key>count</key>
 			<integer>56</integer>
 			<key>duration</key>
-			<real>3.8</real>
+			<real>2.8</real>
 			<key>repeats</key>
 			<integer>1</integer>
 		</dict>
@@ -24,15 +24,15 @@
 			<key>count</key>
 			<integer>22</integer>
 			<key>duration</key>
-			<real>1.5</real>
+			<real>1.2</real>
 			<key>repeats</key>
-			<integer>6</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>count</key>
 			<integer>27</integer>
 			<key>duration</key>
-			<real>1.8</real>
+			<real>1.3</real>
 			<key>repeats</key>
 			<integer>1</integer>
 		</dict>
