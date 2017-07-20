@@ -102,6 +102,7 @@ FXAnimationDelegate
 
 - (void)setupAniamtionLayer {
     CALayer *animationLayer = [CALayer layer];
+    
     animationLayer.frame = self.bounds;
     [self.layer addSublayer:animationLayer];
     self.animtionLayer = animationLayer;
@@ -235,11 +236,13 @@ FXAnimationDelegate
             break;
         }
         NSUInteger repeats = animation.repeats ?: 1;
+        
         CAKeyframeAnimation *caAnim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
         caAnim.values = [cgImages subarrayWithRange:range];
         caAnim.duration = animation.duration;
         caAnim.repeatCount = repeats;
         caAnim.beginTime = duration;
+        
 //        caAnim.calculationMode = kCAAnimationDiscrete;
         [animations addObject:caAnim];
         

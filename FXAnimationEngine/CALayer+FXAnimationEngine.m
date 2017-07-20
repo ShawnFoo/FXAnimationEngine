@@ -122,8 +122,6 @@
 
 #pragma mark Keyframe Update
 - (void)updateKeyframe:(CADisplayLink *)link {
-    self.accumulator += link.duration * link.frameInterval;
-    
     __block BOOL bIsLastRepeat = NO;
     __block NSInteger bImgIndex = -1;
     __block FXKeyframeAnimation *bPlayingAnimation = nil;
@@ -134,6 +132,8 @@
          bIsLastRepeat = lastRepeat;
          bImgIndex = reversedImageIndex;
      }];
+    
+    self.accumulator += link.duration * link.frameInterval;
     
     if (self.playingAnimation != bPlayingAnimation) {
         [self notifyDelegateAnimationDidStop:self.playingAnimation finished:YES];
