@@ -10,17 +10,17 @@
 
 @implementation UIImage (FXDecoder)
 
-- (nullable CGImageRef)fx_decodedCGImageRefCopy {
+- (UIImage *)fx_decodedImage {
     CGImageRef imgRef = self.CGImage;
     if (!imgRef) {
-        return NULL;
+        return nil;
     }
     size_t imgWidth = CGImageGetWidth(imgRef);
     size_t imgHeight = CGImageGetHeight(imgRef);
     if (0 == imgWidth || 0 == imgHeight) {
-        return NULL;
+        return nil;
     }
-    
+	
     const size_t cBPC = 8;
     const size_t cBytesPR = 0;
     
@@ -40,15 +40,17 @@
                                                  cBytesPR,
                                                  CGColorSpaceCreateDeviceRGB(),
                                                  bitmapInfo);
+	UIImage *decodedImage = nil;
     if (context) {
         CGContextDrawImage(context,
                            CGRectMake(0, 0, imgWidth, imgHeight),
                            imgRef);
-        imgRef = CGBitmapContextCreateImage(context);
+        CGImageRef decodedImgRef = CGBitmapContextCreateImage(context);
+		decodedImage = [UIImage imageWithCGImage:decodedImgRef];
         CFRelease(context);
-        return imgRef;
+		CFRelease(decodedImgRef);
     }
-    return NULL;
+    return decodedImage;
 }
 
 @end

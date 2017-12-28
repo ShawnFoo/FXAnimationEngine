@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (FXDecoder)
 
-- (nullable CGImageRef)fx_decodedCGImageRefCopy;
+@property (nullable, nonatomic, readonly) UIImage *fx_decodedImage;
 
 @end
 

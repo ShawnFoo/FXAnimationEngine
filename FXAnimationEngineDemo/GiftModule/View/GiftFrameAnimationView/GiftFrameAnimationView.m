@@ -134,6 +134,10 @@ FXAnimationDelegate
     }
 }
 
+- (void)stopAnimation {
+	[self.animtionLayer fx_stopAnimation];
+}
+
 #pragma mark - Play Animation
 - (void)playAnimationOfGiftItem:(GiftItem *)giftItem {
     self.displayingGiftItem = giftItem;

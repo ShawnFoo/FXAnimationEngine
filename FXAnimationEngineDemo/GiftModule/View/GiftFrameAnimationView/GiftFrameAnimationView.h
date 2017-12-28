@@ -17,5 +17,6 @@ typedef NS_ENUM(char, GiftFrameAnimationViewPlayMode) {
 @interface GiftFrameAnimationView : UIView
 
 - (void)addGiftItem:(GiftItem *)item withPlayMode:(GiftFrameAnimationViewPlayMode)playMode;
+- (void)stopAnimation;
 
 @end

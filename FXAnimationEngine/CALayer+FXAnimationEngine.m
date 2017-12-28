@@ -6,12 +6,13 @@
 //  Copyright © 2016年 ShawnFoo. All rights reserved.
 //
 
-#import "CALayer+FXAnimationEngine.h"
 #import <objc/runtime.h>
+
+#import "CALayer+FXAnimationEngine.h"
 #import "FXAnimaionEngineMacro.h"
 #import "FXAnimationGroup_Private.h"
 #import "FXKeyframeAnimation_Private.h"
-#import "NSTimer+FXWeakTimer.h"
+#import "CADisplayLink+FXWeakTarget.h"
 #import "UIImage+FXDecoder.h"
 
 #pragma mark - FXAnimationEngineDelegate
@@ -89,10 +90,10 @@
     
     self.accumulator = 0;
     self.displayLink =
-    [CADisplayLink fx_displayLinkWithTarget:self
-                                   selector:@selector(updateKeyframe:)
-                                    runloop:[NSRunLoop mainRunLoop]
-                                       mode:NSRunLoopCommonModes];
+    [CADisplayLink fx_addDisplayLinkToRunloop:[NSRunLoop mainRunLoop]
+									  forMode:NSRunLoopCommonModes
+								   withTarget:self
+									actionSEL:@selector(updateKeyframe:)];
     [self notifyDelegateAnimationDidStart:self.animationGroup];
 }
 
@@ -147,24 +148,23 @@
             if (strongActor) {
                 self.currentFrameIndex = bImgIndex;
                 UIImage *frame = self.frameImages[bImgIndex];
+				if (bIsLastRepeat) {
+					[self.frameImages removeLastObject];
+				}
                 if (self.isAsyncDecodeImage) {
                     __weak typeof(self) weakSelf = self;
                     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-                        CGImageRef copyImageRef = [frame fx_decodedCGImageRefCopy];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            if (!weakSelf.animationGroup) {
-                                return;
-                            }
-                            weakSelf.actor.contents = (__bridge id)copyImageRef;
-                        });
+						UIImage *decodedImg = frame.fx_decodedImage ?: frame;
+						dispatch_async(dispatch_get_main_queue(), ^{
+							if (!weakSelf.animationGroup) {
+								return;
+							}
+							weakSelf.actor.contents = (__bridge id)decodedImg.CGImage;
+						});
                     });
                 }
                 else {
                     strongActor.contents = (__bridge id)frame.CGImage;
-                }
-
-                if (bIsLastRepeat) {
-                    [self.frameImages removeLastObject];
                 }
             }
             else {

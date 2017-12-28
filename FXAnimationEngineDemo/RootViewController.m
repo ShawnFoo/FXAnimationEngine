@@ -83,6 +83,7 @@ static NSString *const kAnimationIdentifier = @"kAnimationIdentifier";
     if (self.giftListVC.parentViewController != self) {
         self.giftListVC = nil;
     }
+	[self.frameAnimationView stopAnimation];
 }
 
 #pragma mark - StatusBar

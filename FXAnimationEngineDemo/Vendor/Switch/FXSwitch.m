@@ -241,7 +241,7 @@
 #pragma mark - Animation
 - (void)switchTo:(BOOL)status animated:(BOOL)animated {
     if (status == self.isOn || self.isAnimating) { return; };
-    void (^colorAnimBlock)() = ^{
+    void (^colorAnimBlock)(void) = ^{
         self.backgroundColor = status ? self.onTintColor : self.offTintColor;
         self.textLb.textColor = status ? self.onFontColor : self.offFontColor;
         self.textLb.text = status ? self.onText : self.offText;
