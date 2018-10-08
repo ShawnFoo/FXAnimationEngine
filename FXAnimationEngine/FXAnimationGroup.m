@@ -37,8 +37,7 @@
         }
         self.frames = [allFrames copy];
         hasReleaseAnimationFrames = YES;
-    }
-    else {
+    } else {
         self.frames = [[self.frames reverseObjectEnumerator] allObjects];
     }
     

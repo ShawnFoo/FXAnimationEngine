@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (FXDecoder)
 
 @property (nullable, nonatomic, readonly) UIImage *fx_decodedImage;
+@property (nonatomic, readonly) BOOL fx_hasDecoded;
 
 @end
 

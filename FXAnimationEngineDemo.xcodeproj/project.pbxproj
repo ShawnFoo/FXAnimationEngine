@@ -10,7 +10,6 @@
 		290D84ED1E6C706700F992DC /* GiftListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84EB1E6C706700F992DC /* GiftListCell.m */; };
 		290D84EE1E6C706700F992DC /* GiftListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290D84EC1E6C706700F992DC /* GiftListCell.xib */; };
 		290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */; };
-		290DF0BD1FF53C910011BE4A /* CADisplayLink+FXWeakTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 290DF0BB1FF53C900011BE4A /* CADisplayLink+FXWeakTarget.m */; };
 		29122CDA1E6F176C00E9336C /* gifts in Resources */ = {isa = PBXBuildFile; fileRef = 29122CD91E6F176C00E9336C /* gifts */; };
 		29448BC51E6C68A000987C6C /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29448BC41E6C68A000987C6C /* RootViewController.xib */; };
 		29448BD21E6C69B000987C6C /* NSObject+FXJSONConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 29448BCD1E6C69B000987C6C /* NSObject+FXJSONConvert.m */; };
@@ -21,11 +20,6 @@
 		2972DB001E670F7900906D92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651033E91D489013008D5C4F /* LaunchScreen.storyboard */; };
 		2972DB021E670F7900906D92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651033E71D489013008D5C4F /* Assets.xcassets */; };
 		298E73EF1E6A6880009B3D25 /* FXSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 298E73EE1E6A6880009B3D25 /* FXSwitch.m */; };
-		29B1B6421E67211100F88B25 /* FXAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6351E67211100F88B25 /* FXAnimation.m */; };
-		29B1B6431E67211100F88B25 /* FXAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6371E67211100F88B25 /* FXAnimationGroup.m */; };
-		29B1B6441E67211100F88B25 /* FXKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63A1E67211100F88B25 /* FXKeyframeAnimation.m */; };
-		29B1B6461E67211100F88B25 /* UIImage+FXDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B63F1E67211100F88B25 /* UIImage+FXDecoder.m */; };
-		29B1B6471E67211100F88B25 /* CALayer+FXAnimationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */; };
 		29F178F71E6AFD6C00C46FE5 /* GiftResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F178F61E6AFD6C00C46FE5 /* GiftResourceLoader.m */; };
 		54ED31024B54DBBF7F08A81C /* libPods-FXAnimationEngineDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9E5F295DFECD0CD5F0DDF5 /* libPods-FXAnimationEngineDemo.a */; };
 		654F7EDA1E6806D000700DFA /* GiftListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654F7EC91E6806D000700DFA /* GiftListViewController.m */; };
@@ -46,8 +40,6 @@
 		290D84EC1E6C706700F992DC /* GiftListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftListCell.xib; sourceTree = "<group>"; };
 		290D84EF1E6C708B00F992DC /* GiftFrameAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftFrameAnimationView.h; sourceTree = "<group>"; };
 		290D84F01E6C708B00F992DC /* GiftFrameAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftFrameAnimationView.m; sourceTree = "<group>"; };
-		290DF0BB1FF53C900011BE4A /* CADisplayLink+FXWeakTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+FXWeakTarget.m"; sourceTree = "<group>"; };
-		290DF0BC1FF53C900011BE4A /* CADisplayLink+FXWeakTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CADisplayLink+FXWeakTarget.h"; sourceTree = "<group>"; };
 		29122CD91E6F176C00E9336C /* gifts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gifts; sourceTree = "<group>"; };
 		29448BC41E6C68A000987C6C /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29448BCC1E6C69B000987C6C /* NSObject+FXJSONConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXJSONConvert.h"; sourceTree = "<group>"; };
@@ -58,19 +50,6 @@
 		298E73ED1E6A6880009B3D25 /* FXSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXSwitch.h; sourceTree = "<group>"; };
 		298E73EE1E6A6880009B3D25 /* FXSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXSwitch.m; sourceTree = "<group>"; };
 		298E74041E6AE241009B3D25 /* FXDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXDataSource.h; sourceTree = "<group>"; };
-		29B1B6331E67211100F88B25 /* FXAnimaionEngineMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAnimaionEngineMacro.h; sourceTree = "<group>"; };
-		29B1B6341E67211100F88B25 /* FXAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAnimation.h; sourceTree = "<group>"; };
-		29B1B6351E67211100F88B25 /* FXAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAnimation.m; sourceTree = "<group>"; };
-		29B1B6361E67211100F88B25 /* FXAnimationGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAnimationGroup.h; sourceTree = "<group>"; };
-		29B1B6371E67211100F88B25 /* FXAnimationGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAnimationGroup.m; sourceTree = "<group>"; };
-		29B1B6381E67211100F88B25 /* FXAnimationGroup_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAnimationGroup_Private.h; sourceTree = "<group>"; };
-		29B1B6391E67211100F88B25 /* FXKeyframeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXKeyframeAnimation.h; sourceTree = "<group>"; };
-		29B1B63A1E67211100F88B25 /* FXKeyframeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXKeyframeAnimation.m; sourceTree = "<group>"; };
-		29B1B63B1E67211100F88B25 /* FXKeyframeAnimation_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXKeyframeAnimation_Private.h; sourceTree = "<group>"; };
-		29B1B63E1E67211100F88B25 /* UIImage+FXDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FXDecoder.h"; sourceTree = "<group>"; };
-		29B1B63F1E67211100F88B25 /* UIImage+FXDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FXDecoder.m"; sourceTree = "<group>"; };
-		29B1B6401E67211100F88B25 /* CALayer+FXAnimationEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+FXAnimationEngine.h"; sourceTree = "<group>"; };
-		29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+FXAnimationEngine.m"; sourceTree = "<group>"; };
 		29F178F51E6AFD6C00C46FE5 /* GiftResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftResourceLoader.h; sourceTree = "<group>"; };
 		29F178F61E6AFD6C00C46FE5 /* GiftResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftResourceLoader.m; sourceTree = "<group>"; };
 		651033DC1D489013008D5C4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -173,7 +152,6 @@
 		298E73EB1E6A6856009B3D25 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				29B1B6321E67211100F88B25 /* FXAnimationEngine */,
 				298E73EC1E6A6880009B3D25 /* FXSwitch */,
 			);
 			path = Vendor;
@@ -188,28 +166,6 @@
 			name = FXSwitch;
 			path = Switch;
 			sourceTree = "<group>";
-		};
-		29B1B6321E67211100F88B25 /* FXAnimationEngine */ = {
-			isa = PBXGroup;
-			children = (
-				29B1B6331E67211100F88B25 /* FXAnimaionEngineMacro.h */,
-				29B1B6401E67211100F88B25 /* CALayer+FXAnimationEngine.h */,
-				29B1B6411E67211100F88B25 /* CALayer+FXAnimationEngine.m */,
-				29B1B6341E67211100F88B25 /* FXAnimation.h */,
-				29B1B6351E67211100F88B25 /* FXAnimation.m */,
-				29B1B6361E67211100F88B25 /* FXAnimationGroup.h */,
-				29B1B6371E67211100F88B25 /* FXAnimationGroup.m */,
-				29B1B6381E67211100F88B25 /* FXAnimationGroup_Private.h */,
-				29B1B6391E67211100F88B25 /* FXKeyframeAnimation.h */,
-				29B1B63A1E67211100F88B25 /* FXKeyframeAnimation.m */,
-				29B1B63B1E67211100F88B25 /* FXKeyframeAnimation_Private.h */,
-				29B1B63E1E67211100F88B25 /* UIImage+FXDecoder.h */,
-				29B1B63F1E67211100F88B25 /* UIImage+FXDecoder.m */,
-				290DF0BC1FF53C900011BE4A /* CADisplayLink+FXWeakTarget.h */,
-				290DF0BB1FF53C900011BE4A /* CADisplayLink+FXWeakTarget.m */,
-			);
-			path = FXAnimationEngine;
-			sourceTree = SOURCE_ROOT;
 		};
 		29F178F31E6AF47B00C46FE5 /* GiftAnimation */ = {
 			isa = PBXGroup;
@@ -377,8 +333,6 @@
 				2972DAF21E670F7900906D92 /* Sources */,
 				2972DAFD1E670F7900906D92 /* Frameworks */,
 				2972DAFF1E670F7900906D92 /* Resources */,
-				2972DB041E670F7900906D92 /* [CP] Embed Pods Frameworks */,
-				2972DB051E670F7900906D92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,43 +398,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FXAnimationEngineDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		2972DB041E670F7900906D92 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2972DB051E670F7900906D92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FXAnimationEngineDemo/Pods-FXAnimationEngineDemo-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -492,7 +419,6 @@
 			files = (
 				29448BD31E6C69B000987C6C /* FXPage.m in Sources */,
 				654F7EDC1E6806D000700DFA /* GiftAnimation.m in Sources */,
-				29B1B6461E67211100F88B25 /* UIImage+FXDecoder.m in Sources */,
 				290D84ED1E6C706700F992DC /* GiftListCell.m in Sources */,
 				654F7EDD1E6806D000700DFA /* GiftAnimationGroup.m in Sources */,
 				654F7EDF1E6806D000700DFA /* GiftManager.m in Sources */,
@@ -500,16 +426,11 @@
 				2972DAF31E670F7900906D92 /* RootViewController.m in Sources */,
 				2972DAF71E670F7900906D92 /* AppDelegate.m in Sources */,
 				65DB7ED11E681E580092CFBE /* GiftImageInfo.m in Sources */,
-				29B1B6431E67211100F88B25 /* FXAnimationGroup.m in Sources */,
 				654F7EDE1E6806D000700DFA /* GiftItem.m in Sources */,
 				29F178F71E6AFD6C00C46FE5 /* GiftResourceLoader.m in Sources */,
-				29B1B6441E67211100F88B25 /* FXKeyframeAnimation.m in Sources */,
 				29448BD21E6C69B000987C6C /* NSObject+FXJSONConvert.m in Sources */,
-				29B1B6421E67211100F88B25 /* FXAnimation.m in Sources */,
-				29B1B6471E67211100F88B25 /* CALayer+FXAnimationEngine.m in Sources */,
 				654F7EDB1E6806D000700DFA /* GiftListViewModel.m in Sources */,
 				2972DAFA1E670F7900906D92 /* main.m in Sources */,
-				290DF0BD1FF53C910011BE4A /* CADisplayLink+FXWeakTarget.m in Sources */,
 				290D84F11E6C708B00F992DC /* GiftFrameAnimationView.m in Sources */,
 				654F7EDA1E6806D000700DFA /* GiftListViewController.m in Sources */,
 			);

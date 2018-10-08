@@ -1,4 +1,5 @@
 PODS:
+  - FXAnimationEngine (1.0.0)
   - Masonry (1.0.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -10,15 +11,27 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - FXAnimationEngine (from `./`)
   - Masonry (~> 1.0.2)
   - ReactiveCocoa (~> 2.5)
   - YYModel (~> 1.0.4)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - ReactiveCocoa
+    - YYModel
+
+EXTERNAL SOURCES:
+  FXAnimationEngine:
+    :path: "./"
+
 SPEC CHECKSUMS:
+  FXAnimationEngine: ea642d8f9bf964997f37a9d7a30e53ae2644f32a
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 1c712b70d729e7944a734c9f11d67a91c1e1acb6
+PODFILE CHECKSUM: 3f13019c116adfc179f362919025876b860a0c80
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.3

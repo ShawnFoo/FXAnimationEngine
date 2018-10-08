@@ -8,19 +8,19 @@
 
 #import <objc/runtime.h>
 
+#import "CADisplayLink+FXWeakTarget.h"
 #import "CALayer+FXAnimationEngine.h"
 #import "FXAnimaionEngineMacro.h"
 #import "FXAnimationGroup_Private.h"
+#import "FXImageDecodeOperation.h"
 #import "FXKeyframeAnimation_Private.h"
-#import "CADisplayLink+FXWeakTarget.h"
 #import "UIImage+FXDecoder.h"
 
 #pragma mark - FXAnimationEngineDelegate
 @class FXAnimationEngine;
+
 @protocol FXAnimationEngineDelegate <NSObject>
-
 - (void)engine:(FXAnimationEngine *)engine didEndFXAnimation:(FXAnimation *)animation;
-
 @end
 
 #pragma mark - FXAnimationEngine
@@ -29,6 +29,7 @@
 @property (nonatomic, weak) CALayer *actor;
 @property (nonatomic, weak) id<FXAnimationEngineDelegate> delegate;
 @property (nonatomic, assign, getter=isAsyncDecodeImage) BOOL asyncDecodeImage;
+@property (nonatomic, strong) NSOperationQueue *imageDecodeQueue;
 
 @property (nonatomic, strong) FXAnimationGroup *animationGroup;
 @property (nonatomic, weak) FXKeyframeAnimation *playingAnimation;
@@ -55,8 +56,7 @@
     if ([animation isMemberOfClass:[FXKeyframeAnimation class]]) {
         animGroup = [FXAnimationGroup animation];
         animGroup.animations = @[animation];
-    }
-    else if ([animation isKindOfClass:[FXAnimationGroup class]]) {
+    } else if ([animation isKindOfClass:[FXAnimationGroup class]]) {
         animGroup = animation;
     }
     if (animGroup) {
@@ -69,19 +69,6 @@
     return nil;
 }
 
-#pragma mark Accessor
-- (FXKeyframeAnimation *)nextAnimation {
-    NSArray *animations = self.animationGroup.animations;
-    NSInteger index = self.playingAnimation ? [animations indexOfObject:self.playingAnimation] : NSNotFound;
-    if (NSNotFound == index) {
-        return animations.firstObject;
-    }
-    else if (index+1 >= animations.count) {
-        return nil;
-    }
-    return animations[index+1];
-}
-
 #pragma mark Action
 - (void)start {
     [self.animationGroup p_mergeAndReverseAnimationFrames];
@@ -91,13 +78,14 @@
     self.accumulator = 0;
     self.displayLink =
     [CADisplayLink fx_addDisplayLinkToRunloop:[NSRunLoop mainRunLoop]
-									  forMode:NSRunLoopCommonModes
-								   withTarget:self
-									actionSEL:@selector(updateKeyframe:)];
+                                      forMode:NSRunLoopCommonModes
+                                   withTarget:self
+                                    actionSEL:@selector(updateKeyframe:)];
     [self notifyDelegateAnimationDidStart:self.animationGroup];
 }
 
 - (void)stop {
+    [self.imageDecodeQueue cancelAllOperations];
     [self.displayLink invalidate];
     self.displayLink = nil;
     
@@ -126,8 +114,8 @@
     __block BOOL bIsLastRepeat = NO;
     __block NSInteger bImgIndex = -1;
     __block FXKeyframeAnimation *bPlayingAnimation = nil;
-    [self imageIndexAtTime:self.accumulator
-                returnInfo:^(FXKeyframeAnimation *animation, BOOL lastRepeat, NSInteger reversedImageIndex)
+    [self calcImageIndexAtTime:self.accumulator
+                    returnInfo:^(FXKeyframeAnimation *animation, BOOL lastRepeat, NSInteger reversedImageIndex)
      {
          bPlayingAnimation = animation;
          bIsLastRepeat = lastRepeat;
@@ -144,44 +132,42 @@
     self.playingAnimation = bPlayingAnimation;
     if (bImgIndex >= 0) {
         if (bImgIndex != self.currentFrameIndex) {
-            CALayer *strongActor = self.actor;
-            if (strongActor) {
-                self.currentFrameIndex = bImgIndex;
-                UIImage *frame = self.frameImages[bImgIndex];
-				if (bIsLastRepeat) {
-					[self.frameImages removeLastObject];
-				}
-                if (self.isAsyncDecodeImage) {
-                    __weak typeof(self) weakSelf = self;
-                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-						UIImage *decodedImg = frame.fx_decodedImage ?: frame;
-						dispatch_async(dispatch_get_main_queue(), ^{
-							if (!weakSelf.animationGroup) {
-								return;
-							}
-							weakSelf.actor.contents = (__bridge id)decodedImg.CGImage;
-						});
-                    });
-                }
-                else {
-                    strongActor.contents = (__bridge id)frame.CGImage;
-                }
+            self.currentFrameIndex = bImgIndex;
+            UIImage *frame = self.frameImages[bImgIndex];
+            if (bIsLastRepeat) {
+                [self.frameImages removeLastObject];
             }
-            else {
-                [self stop];
+            if (frame.fx_hasDecoded) { // has decoded image
+                self.actor.contents = (__bridge id)frame.CGImage;
+            } else {
+                __weak typeof(self) weakSelf = self;
+                FXImageDecodeCompletedBlk blk = ^(UIImage *decodedImage) {
+                    if (!bIsLastRepeat && weakSelf.frameImages.count) {
+                        // need repeat, replace raw image with decoded image
+                        NSInteger lastIndex = weakSelf.frameImages.count - 1;
+                        weakSelf.frameImages[lastIndex] = decodedImage;
+                    }
+                    weakSelf.actor.contents = (__bridge id)decodedImage.CGImage;
+                };
+                
+                if (self.isAsyncDecodeImage) {
+                    // cancel timeout ops
+                    [self.imageDecodeQueue cancelAllOperations];
+                    [self.imageDecodeQueue addOperation:[[FXImageDecodeOperation alloc] initWithImage:frame completedBlock:blk]];
+                } else {
+                    blk(frame.fx_decodedImage);
+                }
             }
         }
-    }
-    else {
+    } else {
         [self notifyDelegateAnimationDidStop:self.playingAnimation finished:YES];
         [self notifyDelegateAnimationDidStop:self.animationGroup finished:YES];
-        self.playingAnimation = nil;
         [self stop];
     }
 }
 
-- (void)imageIndexAtTime:(NSTimeInterval)time
-              returnInfo:(void (^)(FXKeyframeAnimation *animation, BOOL isLastRepeat, NSInteger reversedImageIndex))returnInfo {
+- (void)calcImageIndexAtTime:(NSTimeInterval)time
+                  returnInfo:(void (^)(FXKeyframeAnimation *animation, BOOL isLastRepeat, NSInteger reversedImageIndex))returnInfo {
     if (time < self.lastQueryTime) {
         self.playedFrames = 0;
         self.playedAnimTime = 0;
@@ -199,9 +185,9 @@
         if (timeDiff < repeatsDuration) {
             __block BOOL bIsLastRepeat;
             __block NSUInteger bFrameIndex;
-            [self frameIndexAtTime:timeDiff
-                       ofAnimation:animation
-                        returnInfo:^(BOOL isLastRepeat, NSUInteger frameIndex)
+            [self calcFrameIndexAtTime:timeDiff
+                           inAnimation:animation
+                            returnInfo:^(BOOL isLastRepeat, NSUInteger frameIndex)
              {
                  bIsLastRepeat = isLastRepeat;
                  bFrameIndex = frameIndex;
@@ -220,9 +206,9 @@
     FXRunBlockSafe(returnInfo, nil, YES, -1);
 }
 
-- (void)frameIndexAtTime:(NSTimeInterval)time
-             ofAnimation:(FXKeyframeAnimation *)animation
-              returnInfo:(void (^)(BOOL isLastRepeat, NSUInteger frameIndex))returnInfo {
+- (void)calcFrameIndexAtTime:(NSTimeInterval)time
+                 inAnimation:(FXKeyframeAnimation *)animation
+                  returnInfo:(void (^)(BOOL isLastRepeat, NSUInteger frameIndex))returnInfo {
     NSUInteger framesCount = animation.count;
     NSUInteger repeat = floor(time / animation.duration);
     NSUInteger frameIndex = floor((time - repeat * animation.duration) / animation.p_interval);
@@ -233,23 +219,40 @@
 #pragma mark Notify Delegate
 - (void)notifyDelegateAnimationDidStart:(FXAnimation *)animation {
     id<FXAnimationDelegate> strongDelegate = animation.delegate;
-    if ([strongDelegate respondsToSelector:@selector(fxAnimationDidStart:)]) {
+    if (animation && [strongDelegate respondsToSelector:@selector(fxAnimationDidStart:)]) {
         [strongDelegate fxAnimationDidStart:animation];
     }
 }
 
 - (void)notifyDelegateAnimationDidStop:(FXAnimation *)animation finished:(BOOL)finished {
     id<FXAnimationDelegate> strongDelegate = animation.delegate;
-    if ([strongDelegate respondsToSelector:@selector(fxAnimationDidStop:finished:)]) {
+    if (animation && [strongDelegate respondsToSelector:@selector(fxAnimationDidStop:finished:)]) {
         [strongDelegate fxAnimationDidStop:animation finished:finished];
     }
 }
 
 - (void)notifyDelegateEngineDidEndAnimation:(FXAnimation *)animation {
     id<FXAnimationEngineDelegate> strongDelegate = self.delegate;
-    if ([strongDelegate respondsToSelector:@selector(engine:didEndFXAnimation:)]) {
+    if (animation && [strongDelegate respondsToSelector:@selector(engine:didEndFXAnimation:)]) {
         [strongDelegate engine:self didEndFXAnimation:animation];
     }
+}
+
+#pragma mark Accessor
+- (FXKeyframeAnimation *)nextAnimation {
+    NSArray *animations = self.animationGroup.animations;
+    NSInteger index = self.playingAnimation ? [animations indexOfObject:self.playingAnimation] + 1 : 0;
+    return index < animations.count ? animations[index] : nil;
+}
+
+#pragma mark - LazyLoading
+- (NSOperationQueue *)imageDecodeQueue {
+    if (!_imageDecodeQueue) {
+        _imageDecodeQueue = [[NSOperationQueue alloc] init];
+        _imageDecodeQueue.maxConcurrentOperationCount = 1;
+        _imageDecodeQueue.qualityOfService = NSQualityOfServiceUtility;
+    }
+    return _imageDecodeQueue;
 }
 
 @end

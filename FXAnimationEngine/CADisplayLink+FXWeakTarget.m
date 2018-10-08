@@ -133,16 +133,14 @@ NS_ASSUME_NONNULL_BEGIN
 	if (strongTarget) {
 		if (self.callback) {
 			self.callback(link);
-		}
-		else if ([strongTarget respondsToSelector:self.actionSEL]) {
+		} else if ([strongTarget respondsToSelector:self.actionSEL]) {
 			id receiver = object_getClass(strongTarget);
 			void (*implement)(id, SEL, id)  = (void (*)(id, SEL, id))class_getMethodImplementation(receiver, self.actionSEL);
 			if (implement) {
 				implement(strongTarget, self.actionSEL, link);
 			}
 		}
-	}
-	else {
+	} else {
 		[self invalidateDLink];
 	}
 }

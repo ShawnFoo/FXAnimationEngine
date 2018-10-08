@@ -6,6 +6,7 @@
 //  Copyright © 2017年 ShawnFoo. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "UIImage+FXDecoder.h"
 
 @implementation UIImage (FXDecoder)
@@ -47,10 +48,24 @@
                            imgRef);
         CGImageRef decodedImgRef = CGBitmapContextCreateImage(context);
 		decodedImage = [UIImage imageWithCGImage:decodedImgRef];
+        [self fx_markDecodedImage:decodedImage];
         CFRelease(context);
 		CFRelease(decodedImgRef);
     }
     return decodedImage;
+}
+
+- (void)fx_markDecodedImage:(UIImage *)image {
+    if (image) {
+        objc_setAssociatedObject(image,
+                                 @selector(fx_hasDecoded),
+                                 @(YES),
+                                 OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
+}
+
+- (BOOL)fx_hasDecoded {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
 @end
