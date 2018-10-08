@@ -1,7 +1,8 @@
 # FXAnimationEngine
 
+[![中文](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-Readme-lightgrey.svg)](https://shawnfoo.github.io/2017/07/20/%E7%9B%B4%E6%92%AD%E5%BA%94%E7%94%A8%E9%80%81%E7%A4%BC%E5%8A%A8%E7%94%BB%E7%89%B9%E6%95%88%E5%AE%9E%E7%8E%B0/)
 ![iOS 7.0+](https://img.shields.io/badge/iOS-7.0%2B-orange.svg)
-![pod](https://img.shields.io/badge/Cocoapods-v1.0.0-blue.svg)
+![pod](https://img.shields.io/badge/Cocoapods-v1.0.1-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 An engine to display image frames in animation without causing high-memory usage. 
@@ -15,9 +16,9 @@ An engine to display image frames in animation without causing high-memory usage
 
 ## Previews
 
-![](http://wx2.sinaimg.cn/mw690/9161297cgy1fdmo6j4at5g209o0h7kjq.gif)
+![](https://github.com/ShawnFoo/FXAnimationEngine/blob/develop/img/mhcb.gif?raw=true)
 
-![](http://wx4.sinaimg.cn/mw690/9161297cgy1fdmokmsyghg209o0h7u10.gif)
+![](https://github.com/ShawnFoo/FXAnimationEngine/blob/develop/img/tianshi.gif?raw=true)
 
 ## Using Engine
 
@@ -67,11 +68,11 @@ animationGroup.delegate = self;
 
 ```
 - (void)fxAnimationDidStart:(FXAnimation *)anim {
-	// identify your animation by its "identifier" property
+    // identify your animation by its "identifier" property
 }
 
 - (void)fxAnimationDidStop:(FXAnimation *)anim finished:(BOOL)finished {
-	// ...
+    // ...
 }
 ```
 

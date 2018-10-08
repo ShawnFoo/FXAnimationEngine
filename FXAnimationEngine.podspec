@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "FXAnimationEngine"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "An engine to play image frames in animation without causing high-memory usage. "
 
   spec.homepage     = "https://github.com/ShawnFoo/FXAnimationEngine"
