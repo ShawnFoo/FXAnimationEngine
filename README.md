@@ -86,14 +86,6 @@ If you create your keyframe animation by Core Animation, all images will be load
 	
 With FXAnimationEngine, creating a keyframe animation won't cause high-memory waterline, since only one image(200KB) occupies memory during animation.
 
-#### Demo Allocation Test
-
-FXKeyframeAnimation
-![](http://wx4.sinaimg.cn/large/9161297cgy1fdzh58acisj20m2084mz0.jpg)
-
-CAKeyframeAnimation
-![](http://wx2.sinaimg.cn/large/9161297cgy1fdzh53wwd9j20vi0aktbz.jpg)
-
 ## How To Use Demo
 This demo implements a living room using custom animation configuration to create FXKeyframeAnimation or CAKeyframeAnimation. 
 
